@@ -1,0 +1,47 @@
+/* ═══════════════════════════════════════════════════════════════
+   MooScan — Image Entry Animations
+   Triggered by IntersectionObserver (.in-view class toggle)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+@keyframes imgFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes imgSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes imgZoomIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Base state — hidden until .in-view is added ───────────── */
+.img-fade-in,
+.img-slide-up,
+.img-zoom-in {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* ── Animated state ────────────────────────────────────────── */
+.img-fade-in.in-view {
+  animation: imgFadeIn 0.6s ease-out forwards;
+}
+
+.img-slide-up.in-view {
+  animation: imgSlideUp 0.65s ease-out forwards;
+}
+
+.img-zoom-in.in-view {
+  animation: imgZoomIn 0.6s cubic-bezier(0.22, 0.7, 0.28, 1) forwards;
+}
+
+/* ── Stagger helpers (optional delay classes) ──────────────── */
+.anim-d1 { animation-delay: 0.10s; }
+.anim-d2 { animation-delay: 0.22s; }
+.anim-d3 { animation-delay: 0.34s; }
+.anim-d4 { animation-delay: 0.46s; }

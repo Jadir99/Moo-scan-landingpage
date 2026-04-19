@@ -6,16 +6,12 @@
   <title>MooScan — Smart IoT & AI Dairy Cow Monitoring</title>
   <meta name="description" content="MooScan is a smart IoT & AI monitoring system for dairy cows. Detect mastitis early, protect milk quality, and modernise your farm — by YaneCode Digital." />
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="animations.css" />
 
   <script>
     tailwind.config = {
@@ -42,110 +38,84 @@
     *, body { font-family: 'Jost', sans-serif; }
     h1, h2, h3, h4, .font-heading { font-family: 'Playfair Display', Georgia, serif; }
 
-    /* ── Hero ── */
     .hero-section {
       background: linear-gradient(to right, rgba(15,25,15,.85) 55%, rgba(15,25,15,.45) 100%),
                   url('images/hero.png') center/cover no-repeat;
       min-height: 100vh;
     }
 
-    /* ── Marquee strip ── */
     .marquee-track { display: flex; width: max-content; animation: marqueeScroll 30s linear infinite; }
     @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* ── Hover states ── */
     .gallery-card .overlay       { opacity: 0; transition: opacity .35s ease; }
     .gallery-card:hover .overlay { opacity: 1; }
-
-    .team-card .socials       { opacity: 0; transform: translateY(12px); transition: all .35s ease; }
-    .team-card:hover .socials { opacity: 1; transform: translateY(0); }
-    .team-card:hover img      { transform: scale(1.05); }
-
+    .team-card .socials          { opacity: 0; transform: translateY(12px); transition: all .35s ease; }
+    .team-card:hover .socials    { opacity: 1; transform: translateY(0); }
+    .team-card:hover img         { transform: scale(1.05); }
     .service-card .svc-icon      { transition: all .35s ease; }
-    .service-card:hover .svc-icon { background: #4a7c3f; color: #fff; }
+    .service-card:hover .svc-icon{ background: #4a7c3f; color: #fff; }
+    .blog-card img               { transition: transform .45s ease; }
+    .blog-card:hover img         { transform: scale(1.07); }
 
-    .blog-card img { transition: transform .45s ease; }
-    .blog-card:hover img { transform: scale(1.07); }
-
-    /* ── Buttons ── */
-    .btn-green  { background:#4a7c3f; color:#fff; transition: background .3s; }
+    .btn-green   { background:#4a7c3f; color:#fff; transition: background .3s; }
     .btn-green:hover { background:#2e5225; }
-    .btn-outline{ border:2px solid #4a7c3f; color:#4a7c3f; transition: all .3s; }
+    .btn-outline { border:2px solid #4a7c3f; color:#4a7c3f; transition: all .3s; }
     .btn-outline:hover { background:#4a7c3f; color:#fff; }
 
-    /* ── Section label ── */
     .sec-label { color:#4a7c3f; letter-spacing:.15em; text-transform:uppercase; font-size:.78rem; font-weight:600; }
-
-    /* ── Divider leaf ── */
     .leaf-divider { display:inline-flex; align-items:center; gap:8px; }
     .leaf-divider::before, .leaf-divider::after { content:''; display:block; height:2px; width:40px; background:#4a7c3f; }
-
-    /* ── Stat counter ── */
     .stat-num { font-family:'Playfair Display',serif; line-height:1; }
-
-    /* ── Testimonial quote card ── */
     .testimonial-card { box-shadow: 0 4px 30px rgba(74,124,63,.10); }
     .testimonial-card .stars { color:#c8a84b; }
-
-    /* ── Footer ── */
     footer a:hover { color:#6aab58; }
 
-    /* ── Nav dropdown ── */
     .nav-item .dropdown { display:none; position:absolute; top:100%; left:0; min-width:180px; background:#fff; box-shadow:0 8px 30px rgba(0,0,0,.12); border-top:3px solid #4a7c3f; z-index:999; }
     .nav-item:hover .dropdown { display:block; }
 
-    /* ── Live pulse ── */
     .live-dot { width:8px; height:8px; background:#4ade80; border-radius:50%; animation: livePulse 1.8s ease-in-out infinite; display:inline-block; }
     @keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
 
-    /* ── Scrollbar ── */
     ::-webkit-scrollbar { width:5px; }
     ::-webkit-scrollbar-thumb { background:#4a7c3f; border-radius:4px; }
 
-    /* ── Scan animation ── */
     .ai-scan-line {
       position:absolute; left:0; right:0; top:0; height:2px;
       background: linear-gradient(90deg, transparent, #4a7c3f, transparent);
       box-shadow: 0 0 18px #4a7c3f;
-      animation: scanLine 4s ease-in-out infinite;
-      z-index:2;
+      animation: scanLine 4s ease-in-out infinite; z-index:2;
     }
-    @keyframes scanLine {
-      0%,100%{top:5%;opacity:0} 10%{opacity:1} 50%{top:95%} 90%{opacity:1}
-    }
+    @keyframes scanLine { 0%,100%{top:5%;opacity:0} 10%{opacity:1} 50%{top:95%} 90%{opacity:1} }
 
-    /* ── Project intro: staggered fade-in-up ── */
+    /* ── Staggered fade-in-up ── */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity:0; transform:translateY(28px); }
+      to   { opacity:1; transform:translateY(0); }
     }
-    .reveal { opacity: 0; animation: fadeInUp .72s cubic-bezier(.22,.7,.28,1) forwards; }
-    .reveal-d1 { animation-delay: .10s; }
-    .reveal-d2 { animation-delay: .28s; }
-    .reveal-d3 { animation-delay: .46s; }
+    .reveal   { opacity:0; animation: fadeInUp .72s cubic-bezier(.22,.7,.28,1) forwards; }
+    .reveal-d1{ animation-delay:.10s; }
+    .reveal-d2{ animation-delay:.28s; }
+    .reveal-d3{ animation-delay:.46s; }
 
-    /* ── Keyword pulse on hover ── */
-    .kw {
-      color: #4a7c3f; font-weight: 600; display: inline-block;
-      transition: color .25s ease, transform .25s ease;
-      cursor: default;
-    }
-    .kw:hover { color: #2e5225; transform: scale(1.04) translateY(-1px); }
-    .kw-accent { color: #c8a84b; }
-    .kw-accent:hover { color: #a8882f; }
+    /* ── Keyword hover ── */
+    .kw { color:#4a7c3f; font-weight:600; display:inline-block; transition:color .25s,transform .25s; cursor:default; }
+    .kw:hover { color:#2e5225; transform:scale(1.04) translateY(-1px); }
+    .kw-accent { color:#c8a84b; }
+    .kw-accent:hover { color:#a8882f; }
 
-    /* ── Roadmap connector ── */
-    .roadmap-step:not(:last-child)::after {
-      content:''; position:absolute; top:32px; left:calc(100% - 0px); width:100%; height:2px;
-      background: linear-gradient(90deg, #4a7c3f, #6aab58);
-    }
+    /* ── Lang toggle ── */
+    .lang-toggle { display:inline-flex; background:#f1f5f0; border:1px solid #d1ddd0; border-radius:100px; padding:3px; gap:2px; }
+    .lang-btn { padding:5px 13px; border-radius:100px; font-size:.75rem; font-weight:600; letter-spacing:.06em; color:#4b5a54; transition:all .22s; cursor:pointer; background:none; border:none; }
+    .lang-btn.active { background:#4a7c3f; color:#fff; }
+
+    /* ── Transition on lang switch ── */
+    .lang-fade { transition: opacity .18s ease; }
+    .lang-fade.switching { opacity:0; }
   </style>
 </head>
-<body class="bg-white text-gray-700 overflow-x-hidden">
+<body class="bg-white text-gray-700 overflow-x-hidden lang-fade">
 
-<!-- ══════════════════════════════════════════
-     TOP BAR
-══════════════════════════════════════════ -->
+<!-- TOP BAR -->
 <div class="bg-dark text-gray-300 text-sm py-2.5 hidden md:block">
   <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
     <div class="flex items-center gap-6">
@@ -158,7 +128,7 @@
     </div>
     <div class="flex items-center gap-5">
       <span class="flex items-center gap-2">
-        <span class="live-dot"></span> Live pilot running on Moroccan farms
+        <span class="live-dot"></span> <span data-i18n="topbar.pilot">Live pilot running on Moroccan farms</span>
       </span>
       <div class="flex items-center gap-3 border-l border-gray-600 pl-5">
         <a href="#" class="hover:text-primary-lt transition-colors"><i class="fab fa-linkedin-in"></i></a>
@@ -170,36 +140,33 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     NAVBAR
-══════════════════════════════════════════ -->
+<!-- NAVBAR -->
 <header id="navbar" class="bg-white shadow-sm sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
 
-    <!-- Logo -->
     <a href="#" class="flex items-center gap-3 flex-shrink-0">
       <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-        <img src="Logo MooScan.png" alt="">
+        <img src="Logo MooScan.png" alt="MooScan" class="w-7 h-7 object-contain" />
       </div>
       <span class="font-heading text-2xl font-bold text-dark leading-none">Moo<em class="not-italic text-primary">Scan</em></span>
     </a>
 
-    <!-- Desktop Nav -->
     <nav class="hidden lg:flex items-center gap-8">
-      <a href="#context" class="text-dark font-medium hover:text-primary transition-colors">Context</a>
-      <a href="#solution" class="text-dark font-medium hover:text-primary transition-colors">Solution</a>
-      <a href="#data" class="text-dark font-medium hover:text-primary transition-colors">Data</a>
-      <a href="#ai" class="text-dark font-medium hover:text-primary transition-colors">AI</a>
-      <a href="#roadmap" class="text-dark font-medium hover:text-primary transition-colors">Roadmap</a>
-      <a href="#contact" class="text-dark font-medium hover:text-primary transition-colors">Contact</a>
+      <a href="#context"  class="text-dark font-medium hover:text-primary transition-colors" data-i18n="nav.context">Context</a>
+      <a href="#solution" class="text-dark font-medium hover:text-primary transition-colors" data-i18n="nav.solution">Solution</a>
+      <a href="#data"     class="text-dark font-medium hover:text-primary transition-colors" data-i18n="nav.data">Data</a>
+      <a href="#ai"       class="text-dark font-medium hover:text-primary transition-colors" data-i18n="nav.ai">AI</a>
+      <a href="#roadmap"  class="text-dark font-medium hover:text-primary transition-colors" data-i18n="nav.roadmap">Roadmap</a>
+      <a href="#contact"  class="text-dark font-medium hover:text-primary transition-colors" data-i18n="nav.contact">Contact</a>
     </nav>
 
-    <!-- Right Controls -->
-    <div class="flex items-center gap-4">
-      <a href="#contact" class="btn-green hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-semibold">
-        Request Demo <i class="fas fa-arrow-right text-xs"></i>
-      </a>
-      <!-- Hamburger -->
+    <div class="flex items-center gap-3">
+      <!-- Language toggle -->
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a href="#contact" class="btn-green hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-semibold" data-i18n="nav.demo">Request Demo <i class="fas fa-arrow-right text-xs"></i></a>
       <button id="menuToggle" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="menu">
         <span class="w-6 h-0.5 bg-dark block"></span>
         <span class="w-6 h-0.5 bg-dark block"></span>
@@ -210,430 +177,303 @@
 
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-100 bg-white px-6 pb-6 pt-4 space-y-1">
-    <a href="#context"  class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Context</a>
-    <a href="#solution" class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Solution</a>
-    <a href="#data"     class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Data</a>
-    <a href="#ai"       class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">AI</a>
-    <a href="#roadmap"  class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Roadmap</a>
-    <a href="#contact"  class="block py-2.5 text-dark font-medium hover:text-primary">Contact</a>
-    <a href="#contact" class="mt-4 btn-green inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-semibold">Request Demo <i class="fas fa-arrow-right text-xs"></i></a>
+    <a href="#context"  class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100" data-i18n="nav.context">Context</a>
+    <a href="#solution" class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100" data-i18n="nav.solution">Solution</a>
+    <a href="#data"     class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100" data-i18n="nav.data">Data</a>
+    <a href="#ai"       class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100" data-i18n="nav.ai">AI</a>
+    <a href="#roadmap"  class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100" data-i18n="nav.roadmap">Roadmap</a>
+    <a href="#contact"  class="block py-2.5 text-dark font-medium hover:text-primary" data-i18n="nav.contact">Contact</a>
+    <a href="#contact"  class="mt-4 btn-green inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-semibold" data-i18n="nav.demo">Request Demo <i class="fas fa-arrow-right text-xs"></i></a>
   </div>
 </header>
 
-<!-- ══════════════════════════════════════════
-     HERO SECTION
-══════════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero-section relative flex items-center">
-  <!-- Floating badges (desktop) -->
   <div class="absolute right-12 top-1/3 hidden xl:flex flex-col gap-4">
     <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-4 text-center text-white w-32">
       <div class="font-heading text-2xl font-bold">98<span class="text-accent text-lg">%</span></div>
-      <div class="text-xs mt-1 text-gray-200">Detection Accuracy</div>
+      <div class="text-xs mt-1 text-gray-200" data-i18n="hero.badge1">Detection Accuracy</div>
     </div>
     <div class="bg-primary rounded-xl p-4 text-center text-white w-32">
       <div class="font-heading text-2xl font-bold">24/7</div>
-      <div class="text-xs mt-1">Live Monitoring</div>
+      <div class="text-xs mt-1" data-i18n="hero.badge2">Live Monitoring</div>
     </div>
     <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-4 text-center text-white w-32">
       <div class="font-heading text-2xl font-bold">IoT</div>
-      <div class="text-xs mt-1 text-gray-200">+ AI Powered</div>
+      <div class="text-xs mt-1 text-gray-200" data-i18n="hero.badge3">+ AI Powered</div>
     </div>
   </div>
 
   <div class="max-w-7xl mx-auto px-6 py-28 md:py-44 w-full">
     <div class="max-w-2xl">
-      <div class="leaf-divider sec-label mb-5" style="color:#c8a84b">Smart Dairy Farming</div>
-      <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-[1.1] mb-7">
+      <div class="leaf-divider sec-label mb-5" style="color:#c8a84b" data-i18n="hero.label">Smart Dairy Farming</div>
+      <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-[1.1] mb-7" data-i18n="hero.h1">
         Know Your <br />Cows <em class="not-italic text-accent">Before</em> <br />It's Too Late
       </h1>
-      <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-lg">
-        MooScan is a real-time IoT & AI monitoring system that detects mastitis early, protects milk quality, and puts every cow's health in the palm of your hand.
+      <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-lg" data-i18n="hero.lead">
+        MooScan is a real-time IoT &amp; AI monitoring system that detects mastitis early, protects milk quality, and puts every cow's health in the palm of your hand.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="#solution" class="btn-green inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base">
-          See How It Works <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="#contact" class="inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base border-2 border-white/60 text-white hover:bg-white hover:text-dark transition-all">
-          Request a Demo <i class="fas fa-play text-xs"></i>
-        </a>
+        <a href="#solution" class="btn-green inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base" data-i18n="hero.cta1">See How It Works <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact"  class="inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base border-2 border-white/60 text-white hover:bg-white hover:text-dark transition-all" data-i18n="hero.cta2">Request a Demo <i class="fas fa-play text-xs"></i></a>
       </div>
-      <!-- Scroll hint -->
       <div class="mt-16 flex items-center gap-3 text-gray-400 text-sm">
         <div class="w-px h-10 bg-gray-500"></div>
-        <span>Scroll to explore</span>
+        <span data-i18n="hero.scroll">Scroll to explore</span>
       </div>
     </div>
   </div>
 
-  <!-- Bottom hero image bar -->
   <div class="absolute bottom-0 left-0 right-0 hidden lg:grid grid-cols-4">
-    <div class="relative h-40 overflow-hidden">
-      <img src="images/image1.png" alt="Dairy cows" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
-    </div>
-    <div class="relative h-40 overflow-hidden">
-      <img src="images/image2.png" alt="Farm sensors" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
-    </div>
-    <div class="relative h-40 overflow-hidden">
-      <img src="images/image3.png" alt="Technology farm" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
-    </div>
-    <div class="relative h-40 overflow-hidden">
-      <img src="images/image4.png" alt="Milk production" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
-    </div>
+    <div class="relative h-40 overflow-hidden"><img src="images/image1.png" alt="Dairy cows" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity img-fade-in anim-d1" /></div>
+    <div class="relative h-40 overflow-hidden"><img src="images/image2.png" alt="Farm sensors" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity img-fade-in anim-d2" /></div>
+    <div class="relative h-40 overflow-hidden"><img src="images/image3.png" alt="Technology farm" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity img-fade-in anim-d3" /></div>
+    <div class="relative h-40 overflow-hidden"><img src="images/image4.png" alt="Milk production" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity img-fade-in anim-d4" /></div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     MARQUEE TEXT STRIP
-══════════════════════════════════════════ -->
+<!-- MARQUEE -->
 <div class="bg-primary py-4 overflow-hidden mt-0 lg:mt-36">
   <div class="marquee-track">
-    <span class="text-white font-heading italic text-xl px-8">Real-Time Monitoring</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-body text-sm tracking-widest uppercase px-8">IoT Sensors</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-heading italic text-xl px-8">Early Mastitis Detection</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-body text-sm tracking-widest uppercase px-8">AI-Powered</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-heading italic text-xl px-8">Healthier Cows</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-body text-sm tracking-widest uppercase px-8">Better Milk</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <!-- Duplicate -->
-    <span class="text-white font-heading italic text-xl px-8">Real-Time Monitoring</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-body text-sm tracking-widest uppercase px-8">IoT Sensors</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-heading italic text-xl px-8">Early Mastitis Detection</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-body text-sm tracking-widest uppercase px-8">AI-Powered</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-heading italic text-xl px-8">Healthier Cows</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
-    <span class="text-white font-body text-sm tracking-widest uppercase px-8">Better Milk</span>
-    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8" data-i18n="mq.1">Real-Time Monitoring</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white text-sm tracking-widest uppercase px-8">IoT Sensors</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8" data-i18n="mq.2">Early Mastitis Detection</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white text-sm tracking-widest uppercase px-8">AI-Powered</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8" data-i18n="mq.3">Healthier Cows</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white text-sm tracking-widest uppercase px-8" data-i18n="mq.4">Better Milk</span>
+    <span class="text-accent px-3">✦</span>
+    <!-- duplicate -->
+    <span class="text-white font-heading italic text-xl px-8" data-i18n="mq.1">Real-Time Monitoring</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white text-sm tracking-widest uppercase px-8">IoT Sensors</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8" data-i18n="mq.2">Early Mastitis Detection</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white text-sm tracking-widest uppercase px-8">AI-Powered</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8" data-i18n="mq.3">Healthier Cows</span>
+    <span class="text-accent px-3">✦</span>
+    <span class="text-white text-sm tracking-widest uppercase px-8" data-i18n="mq.4">Better Milk</span>
+    <span class="text-accent px-3">✦</span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     PROJECT INTRO BANNER (animated)
-══════════════════════════════════════════ -->
+<!-- PROJECT INTRO BANNER (animated) -->
 <div class="bg-white border-b border-gray-100 py-16">
   <div class="max-w-3xl mx-auto px-6 text-center">
-
-    <!-- Label -->
     <div class="reveal reveal-d1 inline-flex items-center gap-2 mb-5">
       <span class="block w-8 h-px bg-primary"></span>
-      <span class="sec-label tracking-widest">About the Project</span>
+      <span class="sec-label tracking-widest" data-i18n="intro.label">About the Project</span>
       <span class="block w-8 h-px bg-primary"></span>
     </div>
-
-    <!-- Main sentence — staggered word-by-phrase reveal -->
-    <p class="reveal reveal-d2 font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-dark leading-snug mb-4">
+    <p class="reveal reveal-d2 font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-dark leading-snug mb-4" data-i18n="intro.h2">
       MooScan is a project by&nbsp;<span class="kw">YaneCode Digital</span>,<br class="hidden md:block" />
       presented at&nbsp;<span class="kw kw-accent">SIAM&nbsp;2026</span>.
     </p>
-
-    <p class="reveal reveal-d3 text-gray-500 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
-      A smart&nbsp;<span class="kw">IoT&nbsp;&amp;&nbsp;AI</span>&nbsp;monitoring system designed
-      specifically for dairy cow management — bringing real-time intelligence to every farm.
+    <p class="reveal reveal-d3 text-gray-500 text-base md:text-lg leading-relaxed max-w-xl mx-auto" data-i18n="intro.body">
+      A smart&nbsp;<span class="kw">IoT&nbsp;&amp;&nbsp;AI</span>&nbsp;monitoring system designed specifically for dairy cow management — bringing real-time intelligence to every farm.
     </p>
-
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     CONTEXT / PROBLEM SECTION
-══════════════════════════════════════════ -->
+<!-- CONTEXT / PROBLEM -->
 <section id="context" class="py-24 bg-cream">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- Images collage -->
       <div class="relative">
         <div class="grid grid-cols-2 gap-4">
           <div class="rounded-2xl overflow-hidden h-72">
-            <img src="images/prblm1.png" alt="Dairy cow monitoring" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <img src="images/prblm1.png" alt="Dairy cow monitoring" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 img-slide-up" />
           </div>
           <div class="rounded-2xl overflow-hidden h-72 mt-8">
-            <img src="images/prblm2.png" alt="Cattle herd" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <img src="images/prblm2.png" alt="Cattle herd" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 img-slide-up anim-d2" />
           </div>
         </div>
-        <!-- Floating badge -->
         <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-dark text-white px-7 py-4 rounded-xl flex items-center gap-4 shadow-xl whitespace-nowrap">
           <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
             <i class="fas fa-exclamation-triangle text-white text-lg"></i>
           </div>
           <div>
-            <div class="font-heading text-xl font-bold">Silent Losses</div>
-            <div class="text-gray-400 text-xs">Every day, on every farm</div>
+            <div class="font-heading text-xl font-bold" data-i18n="ctx.badge">Silent Losses</div>
+            <div class="text-gray-400 text-xs" data-i18n="ctx.badge_sub">Every day, on every farm</div>
           </div>
         </div>
       </div>
 
-      <!-- Text -->
       <div class="lg:pl-8">
-        <div class="leaf-divider sec-label mb-5">The Problem</div>
-        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+        <div class="leaf-divider sec-label mb-5" data-i18n="ctx.label">The Problem</div>
+        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6" data-i18n="ctx.h2">
           Without Monitoring, <em class="not-italic text-primary">Disease Spreads Unseen</em>
         </h2>
-        <p class="text-gray-500 text-base leading-relaxed mb-5">
+        <p class="text-gray-500 text-base leading-relaxed mb-5" data-i18n="ctx.p1">
           Every day, dairy farms face silent losses. Without continuous monitoring, the earliest signs of disease go unnoticed — until milk quality and profitability both suffer.
         </p>
-        <p class="text-gray-500 text-base leading-relaxed mb-8">
+        <p class="text-gray-500 text-base leading-relaxed mb-8" data-i18n="ctx.p2">
           Traditional methods are reactive. By the time mastitis is spotted manually, contaminated milk has already entered the pipeline and the cow's health has deteriorated.
         </p>
-
-        <!-- Problem list -->
         <ul class="space-y-3 mb-10">
           <li class="flex items-center gap-3 text-dark font-medium">
-            <span class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-times text-red-500 text-xs"></i>
-            </span>Late mastitis detection — quality already dropped
+            <span class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-times text-red-500 text-xs"></i></span>
+            <span data-i18n="ctx.li1">Late mastitis detection — quality already dropped</span>
           </li>
           <li class="flex items-center gap-3 text-dark font-medium">
-            <span class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-times text-red-500 text-xs"></i>
-            </span>Manual monitoring — faint signals get missed 24/7
+            <span class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-times text-red-500 text-xs"></i></span>
+            <span data-i18n="ctx.li2">Manual monitoring — faint signals get missed 24/7</span>
           </li>
           <li class="flex items-center gap-3 text-dark font-medium">
-            <span class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-times text-red-500 text-xs"></i>
-            </span>Rejected milk batches — lost revenue and lost trust
+            <span class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-times text-red-500 text-xs"></i></span>
+            <span data-i18n="ctx.li3">Rejected milk batches — lost revenue and lost trust</span>
           </li>
           <li class="flex items-center gap-3 text-dark font-medium">
-            <span class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-times text-red-500 text-xs"></i>
-            </span>No digital data — decisions based on intuition alone
+            <span class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-times text-red-500 text-xs"></i></span>
+            <span data-i18n="ctx.li4">No digital data — decisions based on intuition alone</span>
           </li>
         </ul>
-
-        <div class="flex flex-wrap items-center gap-5">
-          <a href="#solution" class="btn-green inline-flex items-center gap-2 px-7 py-3.5 rounded font-semibold">
-            See the Solution <i class="fas fa-arrow-right text-sm"></i>
-          </a>
-        </div>
+        <a href="#solution" class="btn-green inline-flex items-center gap-2 px-7 py-3.5 rounded font-semibold" data-i18n="ctx.cta">See the Solution <i class="fas fa-arrow-right text-sm"></i></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SOLUTION PIPELINE SECTION
-══════════════════════════════════════════ -->
+<!-- SOLUTION PIPELINE -->
 <section id="solution" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-6">
-    <!-- Header -->
     <div class="text-center mb-16">
-      <div class="leaf-divider sec-label mb-4 justify-center">One Integrated System</div>
-      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight">
+      <div class="leaf-divider sec-label mb-4 justify-center" data-i18n="sol.label">One Integrated System</div>
+      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight" data-i18n="sol.h2">
         From Sensor to <em class="not-italic text-primary">Farmer Decision</em>
       </h2>
-      <p class="text-gray-500 mt-4 max-w-xl mx-auto">MooScan collects, transmits, analyses and alerts — on a closed loop, for every cow, every day.</p>
+      <p class="text-gray-500 mt-4 max-w-xl mx-auto" data-i18n="sol.lead">MooScan collects, transmits, analyses and alerts — on a closed loop, for every cow, every day.</p>
     </div>
-
-    <!-- Cards grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
-
-      <!-- Step 1 -->
       <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
-        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl">
-          <i class="fas fa-microchip"></i>
-        </div>
+        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-microchip"></i></div>
         <div class="text-accent font-bold text-xs tracking-widest mb-2">01</div>
-        <h3 class="font-heading text-xl font-bold text-dark mb-3">IoT Sensors</h3>
-        <p class="text-gray-500 text-sm leading-relaxed mb-5">
-          Real-time capture of milk, health and behavioural signals directly on and around each cow.
-        </p>
-        <a href="#data" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-          Learn More <i class="fas fa-arrow-right text-xs"></i>
-        </a>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="sol.s1.h">IoT Sensors</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5" data-i18n="sol.s1.p">Real-time capture of milk, health and behavioural signals directly on and around each cow.</p>
+        <a href="#data" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="sol.learn">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
       </div>
-
-      <!-- Step 2 -->
       <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
-        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl">
-          <i class="fas fa-cloud"></i>
-        </div>
+        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-cloud"></i></div>
         <div class="text-accent font-bold text-xs tracking-widest mb-2">02</div>
-        <h3 class="font-heading text-xl font-bold text-dark mb-3">Secure Cloud</h3>
-        <p class="text-gray-500 text-sm leading-relaxed mb-5">
-          Encrypted ingestion, storage and processing at scale — accessible from anywhere, anytime.
-        </p>
-        <a href="#data" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-          Learn More <i class="fas fa-arrow-right text-xs"></i>
-        </a>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="sol.s2.h">Secure Cloud</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5" data-i18n="sol.s2.p">Encrypted ingestion, storage and processing at scale — accessible from anywhere, anytime.</p>
+        <a href="#data" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="sol.learn">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
       </div>
-
-      <!-- Step 3 (featured) -->
       <div class="service-card group p-8 rounded-2xl bg-primary text-center cursor-pointer shadow-lg shadow-primary/25">
-        <div class="svc-icon w-16 h-16 rounded-xl bg-white/20 text-white mx-auto mb-6 flex items-center justify-center text-2xl">
-          <i class="fas fa-brain"></i>
-        </div>
+        <div class="svc-icon w-16 h-16 rounded-xl bg-white/20 text-white mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-brain"></i></div>
         <div class="text-white/70 font-bold text-xs tracking-widest mb-2">03</div>
-        <h3 class="font-heading text-xl font-bold text-white mb-3">AI Engine</h3>
-        <p class="text-white/75 text-sm leading-relaxed mb-5">
-          Anomaly detection, disease classification and mastitis risk forecasting for every individual cow.
-        </p>
-        <a href="#ai" class="inline-flex items-center gap-2 text-white font-semibold text-sm">
-          Learn More <i class="fas fa-arrow-right text-xs"></i>
-        </a>
+        <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="sol.s3.h">AI Engine</h3>
+        <p class="text-white/75 text-sm leading-relaxed mb-5" data-i18n="sol.s3.p">Anomaly detection, disease classification and mastitis risk forecasting for every individual cow.</p>
+        <a href="#ai" class="inline-flex items-center gap-2 text-white font-semibold text-sm" data-i18n="sol.learn">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
       </div>
-
-      <!-- Step 4 -->
       <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
-        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl">
-          <i class="fas fa-bell"></i>
-        </div>
+        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-bell"></i></div>
         <div class="text-accent font-bold text-xs tracking-widest mb-2">04</div>
-        <h3 class="font-heading text-xl font-bold text-dark mb-3">Alerts &amp; Action</h3>
-        <p class="text-gray-500 text-sm leading-relaxed mb-5">
-          Clear recommendations delivered to the farmer's dashboard — before symptoms appear.
-        </p>
-        <a href="#contact" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-          Learn More <i class="fas fa-arrow-right text-xs"></i>
-        </a>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="sol.s4.h">Alerts &amp; Action</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5" data-i18n="sol.s4.p">Clear recommendations delivered to the farmer's dashboard — before symptoms appear.</p>
+        <a href="#contact" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="sol.learn">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     DATA STREAMS + WHY MOOSCAN
-══════════════════════════════════════════ -->
+<!-- DATA STREAMS + WHY MOOSCAN -->
 <section id="data" class="py-24 bg-cream">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-14 items-start">
-
-      <!-- Data streams visual -->
       <div>
-        <div class="leaf-divider sec-label mb-5">Three Data Worlds</div>
-        <h2 class="font-heading text-4xl font-bold text-dark mb-4">
-          One Complete <em class="not-italic text-primary">View of the Cow</em>
-        </h2>
-        <p class="text-gray-500 leading-relaxed mb-10">Fusing milk, health and behavioural streams reveals what no single signal can.</p>
+        <div class="leaf-divider sec-label mb-5" data-i18n="data.label">Three Data Worlds</div>
+        <h2 class="font-heading text-4xl font-bold text-dark mb-4" data-i18n="data.h2">One Complete <em class="not-italic text-primary">View of the Cow</em></h2>
+        <p class="text-gray-500 leading-relaxed mb-10" data-i18n="data.lead">Fusing milk, health and behavioural streams reveals what no single signal can.</p>
         <div class="grid grid-cols-1 gap-5">
-
-          <!-- Milk stream -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
             <div class="px-6 py-4 flex items-center gap-4" style="background:#4a7c3f">
-              <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-tint text-white text-lg"></i>
-              </div>
-              <h3 class="font-heading text-lg font-bold text-white">Milk Data</h3>
+              <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-tint text-white text-lg"></i></div>
+              <h3 class="font-heading text-lg font-bold text-white" data-i18n="data.milk">Milk Data</h3>
             </div>
-            <div class="px-6 py-4">
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Yield (L/day)</span>
-                <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Conductivity</span>
-                <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Temperature</span>
-                <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Flow Rate</span>
-                <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Somatic Cell Proxy</span>
-              </div>
+            <div class="px-6 py-4 flex flex-wrap gap-2">
+              <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.milk.yield">Yield (L/day)</span>
+              <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.milk.cond">Conductivity</span>
+              <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.milk.temp">Temperature</span>
+              <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.milk.flow">Flow Rate</span>
+              <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.milk.scc">Somatic Cell Proxy</span>
             </div>
           </div>
-
-          <!-- Health stream -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
             <div class="px-6 py-4 flex items-center gap-4 bg-dark">
-              <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-heartbeat text-white text-lg"></i>
-              </div>
-              <h3 class="font-heading text-lg font-bold text-white">Health Data</h3>
+              <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-heartbeat text-white text-lg"></i></div>
+              <h3 class="font-heading text-lg font-bold text-white" data-i18n="data.health">Health Data</h3>
             </div>
-            <div class="px-6 py-4">
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full">Body Temperature</span>
-                <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full">Heart &amp; Respiration</span>
-                <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full">Rumen Activity</span>
-                <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full">Udder Condition</span>
-                <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full">Disease Markers</span>
-              </div>
+            <div class="px-6 py-4 flex flex-wrap gap-2">
+              <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.health.temp">Body Temperature</span>
+              <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.health.hr">Heart &amp; Respiration</span>
+              <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.health.rumen">Rumen Activity</span>
+              <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.health.udder">Udder Condition</span>
+              <span class="bg-gray-100 text-dark text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.health.markers">Disease Markers</span>
             </div>
           </div>
-
-          <!-- Behaviour stream -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
             <div class="px-6 py-4 flex items-center gap-4" style="background:#c8a84b">
-              <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-walking text-white text-lg"></i>
-              </div>
-              <h3 class="font-heading text-lg font-bold text-white">Behavioural Data</h3>
+              <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fas fa-walking text-white text-lg"></i></div>
+              <h3 class="font-heading text-lg font-bold text-white" data-i18n="data.behav">Behavioural Data</h3>
             </div>
-            <div class="px-6 py-4">
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">Rumination Time</span>
-                <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">Activity / Steps</span>
-                <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">Standing vs Lying</span>
-                <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">Feeding &amp; Drinking</span>
-                <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">Heat Signs</span>
-              </div>
+            <div class="px-6 py-4 flex flex-wrap gap-2">
+              <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.behav.rum">Rumination Time</span>
+              <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.behav.act">Activity / Steps</span>
+              <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.behav.pos">Standing vs Lying</span>
+              <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.behav.feed">Feeding &amp; Drinking</span>
+              <span class="bg-yellow-50 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full" data-i18n="data.behav.heat">Heat Signs</span>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- Why MooScan -->
       <div class="lg:pt-10">
-        <div class="leaf-divider sec-label mb-5">Why MooScan</div>
-        <h2 class="font-heading text-4xl font-bold text-dark mb-4">
-          Why Choose <em class="not-italic text-primary">MooScan?</em>
-        </h2>
-        <p class="text-gray-500 leading-relaxed mb-10">
-          We go beyond traditional farm monitoring. Our integrated IoT + AI platform provides the earliest warning system available — turning raw signals into clear action.
-        </p>
-
+        <div class="leaf-divider sec-label mb-5" data-i18n="why.label">Why MooScan</div>
+        <h2 class="font-heading text-4xl font-bold text-dark mb-4" data-i18n="why.h2">Why Choose <em class="not-italic text-primary">MooScan?</em></h2>
+        <p class="text-gray-500 leading-relaxed mb-10" data-i18n="why.lead">We go beyond traditional farm monitoring. Our integrated IoT + AI platform provides the earliest warning system available — turning raw signals into clear action.</p>
         <div class="space-y-6">
           <div class="flex gap-5 items-start group">
-            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
-              <i class="fas fa-bolt text-primary group-hover:text-white transition-colors text-xl"></i>
-            </div>
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300"><i class="fas fa-bolt text-primary group-hover:text-white transition-colors text-xl"></i></div>
             <div>
-              <h4 class="font-heading text-lg font-bold text-dark mb-1">Early Warning System</h4>
-              <p class="text-gray-500 text-sm leading-relaxed">MooScan flags anomalies before clinical symptoms appear — giving you time to act, not react.</p>
+              <h4 class="font-heading text-lg font-bold text-dark mb-1" data-i18n="why.f1.h">Early Warning System</h4>
+              <p class="text-gray-500 text-sm leading-relaxed" data-i18n="why.f1.p">MooScan flags anomalies before clinical symptoms appear — giving you time to act, not react.</p>
             </div>
           </div>
-
           <div class="flex gap-5 items-start group">
-            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
-              <i class="fas fa-cow text-primary group-hover:text-white transition-colors text-xl"></i>
-            </div>
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300"><i class="fas fa-cow text-primary group-hover:text-white transition-colors text-xl"></i></div>
             <div>
-              <h4 class="font-heading text-lg font-bold text-dark mb-1">Per-Animal Personalisation</h4>
-              <p class="text-gray-500 text-sm leading-relaxed">Every cow gets her own baseline. Deviations are caught individually, not lost in herd averages.</p>
+              <h4 class="font-heading text-lg font-bold text-dark mb-1" data-i18n="why.f2.h">Per-Animal Personalisation</h4>
+              <p class="text-gray-500 text-sm leading-relaxed" data-i18n="why.f2.p">Every cow gets her own baseline. Deviations are caught individually, not lost in herd averages.</p>
             </div>
           </div>
-
           <div class="flex gap-5 items-start group">
-            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
-              <i class="fas fa-signal text-primary group-hover:text-white transition-colors text-xl"></i>
-            </div>
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300"><i class="fas fa-signal text-primary group-hover:text-white transition-colors text-xl"></i></div>
             <div>
-              <h4 class="font-heading text-lg font-bold text-dark mb-1">Multi-Protocol Connectivity</h4>
-              <p class="text-gray-500 text-sm leading-relaxed">Wi-Fi, LoRa or 4G — MooScan works on farms of any size, even in low-connectivity rural areas.</p>
+              <h4 class="font-heading text-lg font-bold text-dark mb-1" data-i18n="why.f3.h">Multi-Protocol Connectivity</h4>
+              <p class="text-gray-500 text-sm leading-relaxed" data-i18n="why.f3.p">Wi-Fi, LoRa or 4G — MooScan works on farms of any size, even in low-connectivity rural areas.</p>
             </div>
           </div>
-
           <div class="flex gap-5 items-start group">
-            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
-              <i class="fas fa-shield-alt text-primary group-hover:text-white transition-colors text-xl"></i>
-            </div>
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300"><i class="fas fa-shield-alt text-primary group-hover:text-white transition-colors text-xl"></i></div>
             <div>
-              <h4 class="font-heading text-lg font-bold text-dark mb-1">End-to-End Data Security</h4>
-              <p class="text-gray-500 text-sm leading-relaxed">All signals are encrypted from edge to cloud. Your farm data stays yours, always.</p>
+              <h4 class="font-heading text-lg font-bold text-dark mb-1" data-i18n="why.f4.h">End-to-End Data Security</h4>
+              <p class="text-gray-500 text-sm leading-relaxed" data-i18n="why.f4.p">All signals are encrypted from edge to cloud. Your farm data stays yours, always.</p>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     STATS COUNTER
-══════════════════════════════════════════ -->
+<!-- STATS -->
 <section class="bg-dark py-20 relative overflow-hidden">
   <div class="absolute inset-0 opacity-5">
     <i class="fas fa-cow text-white text-[20rem] absolute -top-20 -right-20 rotate-12"></i>
@@ -642,383 +482,250 @@
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
       <div>
-        <div class="stat-num text-5xl font-bold text-white mb-2" id="stat1">98<span class="text-primary">%</span></div>
+        <div class="stat-num text-5xl font-bold text-white mb-2">98<span class="text-primary">%</span></div>
         <div class="w-10 h-0.5 bg-primary mx-auto mb-3"></div>
-        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase">Detection Accuracy</div>
+        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase" data-i18n="stat.acc">Detection Accuracy</div>
       </div>
       <div>
-        <div class="stat-num text-5xl font-bold text-white mb-2" id="stat2">15<span class="text-primary">+</span></div>
+        <div class="stat-num text-5xl font-bold text-white mb-2">15<span class="text-primary">+</span></div>
         <div class="w-10 h-0.5 bg-primary mx-auto mb-3"></div>
-        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase">Signals Tracked</div>
+        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase" data-i18n="stat.sig">Signals Tracked</div>
       </div>
       <div>
-        <div class="stat-num text-5xl font-bold text-white mb-2" id="stat3">24<span class="text-primary">/7</span></div>
+        <div class="stat-num text-5xl font-bold text-white mb-2">24<span class="text-primary">/7</span></div>
         <div class="w-10 h-0.5 bg-primary mx-auto mb-3"></div>
-        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase">Live Monitoring</div>
+        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase" data-i18n="stat.mon">Live Monitoring</div>
       </div>
       <div>
-        <div class="stat-num text-5xl font-bold text-white mb-2" id="stat4">5<span class="text-primary">+</span></div>
+        <div class="stat-num text-5xl font-bold text-white mb-2">5<span class="text-primary">+</span></div>
         <div class="w-10 h-0.5 bg-primary mx-auto mb-3"></div>
-        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase">Partner Farms</div>
+        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase" data-i18n="stat.farms">Partner Farms</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     AI SECTION
-══════════════════════════════════════════ -->
+<!-- AI SECTION -->
 <section id="ai" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- Visual -->
       <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
-        <img src="images/IOT.png" alt="AI cow monitoring" class="w-full h-full object-cover" />
+        <img src="images/IOT.png" alt="AI cow monitoring" class="w-full h-full object-cover img-zoom-in" />
         <div class="absolute inset-0 bg-dark/40"></div>
         <div class="ai-scan-line"></div>
-        <!-- Status pills overlay -->
         <div class="absolute bottom-6 left-6 right-6 flex gap-3 flex-wrap z-10">
-          <span class="bg-green-500 text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2">
-            <span class="live-dot" style="background:#fff"></span> HEALTHY
-          </span>
-          <span class="bg-yellow-400 text-dark text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2">
-            <span style="width:8px;height:8px;background:#1a2a1a;border-radius:50%;display:inline-block;"></span> SUSPICIOUS
-          </span>
-          <span class="bg-red-500 text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2">
-            <span style="width:8px;height:8px;background:#fff;border-radius:50%;display:inline-block;"></span> INTERVENE
-          </span>
+          <span class="bg-green-500 text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2"><span class="live-dot" style="background:#fff"></span> <span data-i18n="ai.status.healthy">HEALTHY</span></span>
+          <span class="bg-yellow-400 text-dark text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2"><span style="width:8px;height:8px;background:#1a2a1a;border-radius:50%;display:inline-block;"></span> <span data-i18n="ai.status.suspicious">SUSPICIOUS</span></span>
+          <span class="bg-red-500 text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-2"><span style="width:8px;height:8px;background:#fff;border-radius:50%;display:inline-block;"></span> <span data-i18n="ai.status.intervene">INTERVENE</span></span>
         </div>
       </div>
-
-      <!-- Text -->
       <div>
-        <div class="leaf-divider sec-label mb-5">AI Intelligence</div>
-        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
-          AI Turns Signals <em class="not-italic text-primary">Into Insight</em>
-        </h2>
-        <p class="text-gray-500 text-base leading-relaxed mb-8">
-          Every cow gets her own baseline. MooScan flags what deviates — before it's too late. Our AI engine continuously learns from cross-signal patterns to sharpen predictions over time.
-        </p>
-
-        <!-- Capabilities grid -->
+        <div class="leaf-divider sec-label mb-5" data-i18n="ai.label">AI Intelligence</div>
+        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6" data-i18n="ai.h2">AI Turns Signals <em class="not-italic text-primary">Into Insight</em></h2>
+        <p class="text-gray-500 text-base leading-relaxed mb-8" data-i18n="ai.lead">Every cow gets her own baseline. MooScan flags what deviates — before it's too late. Our AI engine continuously learns from cross-signal patterns to sharpen predictions over time.</p>
         <div class="grid sm:grid-cols-2 gap-4 mb-8">
           <div class="bg-cream rounded-xl p-5 border border-gray-100 hover:border-primary/30 transition-colors">
-            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-              <i class="fas fa-search text-primary"></i>
-            </div>
-            <h4 class="font-heading font-bold text-dark mb-1">Anomaly Detection</h4>
-            <p class="text-gray-500 text-sm">Spot abnormal cross-signal patterns before they escalate.</p>
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3"><i class="fas fa-search text-primary"></i></div>
+            <h4 class="font-heading font-bold text-dark mb-1" data-i18n="ai.c1.h">Anomaly Detection</h4>
+            <p class="text-gray-500 text-sm" data-i18n="ai.c1.p">Spot abnormal cross-signal patterns before they escalate.</p>
           </div>
           <div class="bg-cream rounded-xl p-5 border border-gray-100 hover:border-primary/30 transition-colors">
-            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-              <i class="fas fa-tags text-primary"></i>
-            </div>
-            <h4 class="font-heading font-bold text-dark mb-1">Classification</h4>
-            <p class="text-gray-500 text-sm">Healthy · suspicious · intervene — clear labels for every cow.</p>
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3"><i class="fas fa-tags text-primary"></i></div>
+            <h4 class="font-heading font-bold text-dark mb-1" data-i18n="ai.c2.h">Classification</h4>
+            <p class="text-gray-500 text-sm" data-i18n="ai.c2.p">Healthy · suspicious · intervene — clear labels for every cow.</p>
           </div>
           <div class="bg-cream rounded-xl p-5 border border-gray-100 hover:border-primary/30 transition-colors">
-            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-              <i class="fas fa-chart-line text-primary"></i>
-            </div>
-            <h4 class="font-heading font-bold text-dark mb-1">Prediction</h4>
-            <p class="text-gray-500 text-sm">Forecast mastitis risk windows days ahead of clinical signs.</p>
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3"><i class="fas fa-chart-line text-primary"></i></div>
+            <h4 class="font-heading font-bold text-dark mb-1" data-i18n="ai.c3.h">Prediction</h4>
+            <p class="text-gray-500 text-sm" data-i18n="ai.c3.p">Forecast mastitis risk windows days ahead of clinical signs.</p>
           </div>
           <div class="bg-cream rounded-xl p-5 border border-gray-100 hover:border-primary/30 transition-colors">
-            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-              <i class="fas fa-bell text-primary"></i>
-            </div>
-            <h4 class="font-heading font-bold text-dark mb-1">Early Warning</h4>
-            <p class="text-gray-500 text-sm">Actionable alerts delivered before symptoms even appear.</p>
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3"><i class="fas fa-bell text-primary"></i></div>
+            <h4 class="font-heading font-bold text-dark mb-1" data-i18n="ai.c4.h">Early Warning</h4>
+            <p class="text-gray-500 text-sm" data-i18n="ai.c4.p">Actionable alerts delivered before symptoms even appear.</p>
           </div>
         </div>
-
-        <a href="#contact" class="btn-green inline-flex items-center gap-2 px-7 py-3.5 rounded font-semibold">
-          See a Live Demo <i class="fas fa-arrow-right text-sm"></i>
-        </a>
+        <a href="#contact" class="btn-green inline-flex items-center gap-2 px-7 py-3.5 rounded font-semibold" data-i18n="ai.demo">See a Live Demo <i class="fas fa-arrow-right text-sm"></i></a>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     ARCHITECTURE SECTION
-══════════════════════════════════════════ -->
+<!-- ARCHITECTURE -->
 <section class="py-24 bg-cream">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <div class="leaf-divider sec-label mb-4 justify-center">System Architecture</div>
-      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight">
-        From Signal on the Ground <em class="not-italic text-primary">to Farmer Decision</em>
-      </h2>
+      <div class="leaf-divider sec-label mb-4 justify-center" data-i18n="arch.label">System Architecture</div>
+      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight" data-i18n="arch.h2">From Signal on the Ground <em class="not-italic text-primary">to Farmer Decision</em></h2>
     </div>
-
     <div class="grid grid-cols-2 md:grid-cols-5 gap-5">
-
-      <!-- Step 1 -->
       <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20">
-          <i class="fas fa-microchip text-white text-xl"></i>
-        </div>
+        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20"><i class="fas fa-microchip text-white text-xl"></i></div>
         <div class="text-accent text-xs font-bold tracking-widest mb-2">01</div>
-        <h4 class="font-heading font-bold text-dark text-base mb-1">Edge</h4>
-        <p class="text-gray-500 text-xs">Sensors on &amp; around the cow</p>
+        <h4 class="font-heading font-bold text-dark text-base mb-1" data-i18n="arch.s1.h">Edge</h4>
+        <p class="text-gray-500 text-xs" data-i18n="arch.s1.p">Sensors on &amp; around the cow</p>
       </div>
-
-      <!-- Step 2 -->
       <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-primary-dk flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20">
-          <i class="fas fa-wifi text-white text-xl"></i>
-        </div>
+        <div class="w-16 h-16 rounded-full bg-primary-dk flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20"><i class="fas fa-wifi text-white text-xl"></i></div>
         <div class="text-accent text-xs font-bold tracking-widest mb-2">02</div>
-        <h4 class="font-heading font-bold text-dark text-base mb-1">Gateway</h4>
+        <h4 class="font-heading font-bold text-dark text-base mb-1" data-i18n="arch.s2.h">Gateway</h4>
         <p class="text-gray-500 text-xs">Wi-Fi / LoRa / 4G</p>
       </div>
-
-      <!-- Step 3 -->
       <div class="bg-primary rounded-2xl p-6 text-center shadow-lg shadow-primary/20 hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4 ring-4 ring-white/20">
-          <i class="fas fa-cloud text-white text-xl"></i>
-        </div>
+        <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4 ring-4 ring-white/20"><i class="fas fa-cloud text-white text-xl"></i></div>
         <div class="text-white/70 text-xs font-bold tracking-widest mb-2">03</div>
-        <h4 class="font-heading font-bold text-white text-base mb-1">Cloud</h4>
-        <p class="text-white/70 text-xs">Secure storage &amp; processing</p>
+        <h4 class="font-heading font-bold text-white text-base mb-1" data-i18n="arch.s3.h">Cloud</h4>
+        <p class="text-white/70 text-xs" data-i18n="arch.s3.p">Secure storage &amp; processing</p>
       </div>
-
-      <!-- Step 4 -->
       <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20">
-          <i class="fas fa-brain text-white text-xl"></i>
-        </div>
+        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20"><i class="fas fa-brain text-white text-xl"></i></div>
         <div class="text-accent text-xs font-bold tracking-widest mb-2">04</div>
         <h4 class="font-heading font-bold text-dark text-base mb-1">AI</h4>
-        <p class="text-gray-500 text-xs">Analytics &amp; predictions</p>
+        <p class="text-gray-500 text-xs" data-i18n="arch.s4.p">Analytics &amp; predictions</p>
       </div>
-
-      <!-- Step 5 -->
       <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-accent flex items-center justify-center mx-auto mb-4 ring-4 ring-accent/20">
-          <i class="fas fa-mobile-alt text-white text-xl"></i>
-        </div>
+        <div class="w-16 h-16 rounded-full bg-accent flex items-center justify-center mx-auto mb-4 ring-4 ring-accent/20"><i class="fas fa-mobile-alt text-white text-xl"></i></div>
         <div class="text-accent text-xs font-bold tracking-widest mb-2">05</div>
-        <h4 class="font-heading font-bold text-dark text-base mb-1">App</h4>
-        <p class="text-gray-500 text-xs">Dashboard &amp; alerts</p>
+        <h4 class="font-heading font-bold text-dark text-base mb-1" data-i18n="arch.s5.h">App</h4>
+        <p class="text-gray-500 text-xs" data-i18n="arch.s5.p">Dashboard &amp; alerts</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     STRATEGIC PILLARS
-══════════════════════════════════════════ -->
+<!-- PILLARS -->
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <div class="leaf-divider sec-label mb-4 justify-center">Our Vision</div>
-      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark">
-        The Four Pillars of <em class="not-italic text-primary">MooScan</em>
-      </h2>
+      <div class="leaf-divider sec-label mb-4 justify-center" data-i18n="pil.label">Our Vision</div>
+      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark" data-i18n="pil.h2">The Four Pillars of <em class="not-italic text-primary">MooScan</em></h2>
     </div>
-
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
-
       <div class="group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-cream hover:bg-white text-center">
-        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all">
-          <i class="fas fa-heart"></i>
-        </div>
-        <h3 class="font-heading text-xl font-bold text-dark mb-3">Animal Welfare</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Healthier cows through continuous, compassionate monitoring. Better welfare means better productivity.</p>
+        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all"><i class="fas fa-heart"></i></div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="pil.p1.h">Animal Welfare</h3>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="pil.p1.p">Healthier cows through continuous, compassionate monitoring. Better welfare means better productivity.</p>
       </div>
-
       <div class="group p-8 rounded-2xl bg-primary text-center shadow-lg shadow-primary/25">
-        <div class="w-16 h-16 rounded-xl bg-white/20 text-white mx-auto mb-6 flex items-center justify-center text-2xl">
-          <i class="fas fa-award"></i>
-        </div>
-        <h3 class="font-heading text-xl font-bold text-white mb-3">Food Quality</h3>
-        <p class="text-white/75 text-sm leading-relaxed">Superior milk quality through early intervention leads to premium pricing and fewer rejected batches.</p>
+        <div class="w-16 h-16 rounded-xl bg-white/20 text-white mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-award"></i></div>
+        <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="pil.p2.h">Food Quality</h3>
+        <p class="text-white/75 text-sm leading-relaxed" data-i18n="pil.p2.p">Superior milk quality through early intervention leads to premium pricing and fewer rejected batches.</p>
       </div>
-
       <div class="group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-cream hover:bg-white text-center">
-        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all">
-          <i class="fas fa-globe-africa"></i>
-        </div>
-        <h3 class="font-heading text-xl font-bold text-dark mb-3">Food Sovereignty</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Supporting local, sustainable farming practices across Morocco and the African continent.</p>
+        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all"><i class="fas fa-globe-africa"></i></div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="pil.p3.h">Food Sovereignty</h3>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="pil.p3.p">Supporting local, sustainable farming practices across Morocco and the African continent.</p>
       </div>
-
       <div class="group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-cream hover:bg-white text-center">
-        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all">
-          <i class="fas fa-laptop-code"></i>
-        </div>
-        <h3 class="font-heading text-xl font-bold text-dark mb-3">Digital Transformation</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Modernising agricultural operations — bringing data-driven decisions to every farm, large or small.</p>
+        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all"><i class="fas fa-laptop-code"></i></div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="pil.p4.h">Digital Transformation</h3>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="pil.p4.p">Modernising agricultural operations — bringing data-driven decisions to every farm, large or small.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     ROADMAP
-══════════════════════════════════════════ -->
+<!-- ROADMAP -->
 <section id="roadmap" class="py-24 bg-cream">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <div class="leaf-divider sec-label mb-4 justify-center">Roadmap</div>
-      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark">
-        From the Moroccan Farm <em class="not-italic text-primary">to the Continent</em>
-      </h2>
+      <div class="leaf-divider sec-label mb-4 justify-center" data-i18n="rd.label">Roadmap</div>
+      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark" data-i18n="rd.h2">From the Moroccan Farm <em class="not-italic text-primary">to the Continent</em></h2>
     </div>
-
     <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-
       <div class="bg-primary rounded-2xl p-7 text-white shadow-lg shadow-primary/20 text-center hover:-translate-y-1 transition-transform">
-        <div class="font-heading text-3xl font-bold mb-1">Now</div>
-        <div class="text-white/70 text-xs uppercase tracking-widest mb-4">Pilot Phase</div>
-        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-seedling text-white text-base"></i>
-        </div>
-        <p class="text-white/80 text-sm leading-relaxed">Pilot deployment on Moroccan partner farms</p>
+        <div class="font-heading text-3xl font-bold mb-1" data-i18n="rd.now.title">Now</div>
+        <div class="text-white/70 text-xs uppercase tracking-widest mb-4" data-i18n="rd.now.label">Pilot Phase</div>
+        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-seedling text-white text-base"></i></div>
+        <p class="text-white/80 text-sm leading-relaxed" data-i18n="rd.now.p">Pilot deployment on Moroccan partner farms</p>
       </div>
-
       <div class="bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
         <div class="font-heading text-3xl font-bold text-dark mb-1">2026</div>
-        <div class="text-primary text-xs uppercase tracking-widest mb-4">Predictive Analytics</div>
-        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-chart-bar text-primary text-base"></i>
-        </div>
-        <p class="text-gray-500 text-sm leading-relaxed">Per-animal risk forecasting at scale</p>
+        <div class="text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2026.label">Predictive Analytics</div>
+        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-chart-bar text-primary text-base"></i></div>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.2026.p">Per-animal risk forecasting at scale</p>
       </div>
-
       <div class="bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
         <div class="font-heading text-3xl font-bold text-dark mb-1">2027</div>
-        <div class="text-primary text-xs uppercase tracking-widest mb-4">Mobile App</div>
-        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-mobile-alt text-primary text-base"></i>
-        </div>
-        <p class="text-gray-500 text-sm leading-relaxed">iOS &amp; Android with offline mode</p>
+        <div class="text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2027.label">Mobile App</div>
+        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-mobile-alt text-primary text-base"></i></div>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.2027.p">iOS &amp; Android with offline mode</p>
       </div>
-
       <div class="bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
         <div class="font-heading text-3xl font-bold text-dark mb-1">2028</div>
-        <div class="text-primary text-xs uppercase tracking-widest mb-4">Vet Integration</div>
-        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-stethoscope text-primary text-base"></i>
-        </div>
-        <p class="text-gray-500 text-sm leading-relaxed">Farm ↔ vet decision link for faster care</p>
+        <div class="text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2028.label">Vet Integration</div>
+        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-stethoscope text-primary text-base"></i></div>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.2028.p">Farm ↔ vet decision link for faster care</p>
       </div>
-
       <div class="bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
         <div class="font-heading text-3xl font-bold text-dark mb-1">2029<span class="text-primary text-xl">+</span></div>
-        <div class="text-primary text-xs uppercase tracking-widest mb-4">Continental Scale</div>
-        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-globe-africa text-primary text-base"></i>
-        </div>
-        <p class="text-gray-500 text-sm leading-relaxed">Expand to other livestock across Africa</p>
+        <div class="text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2029.label">Continental Scale</div>
+        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-globe-africa text-primary text-base"></i></div>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.2029.p">Expand to other livestock across Africa</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     TESTIMONIALS
-══════════════════════════════════════════ -->
+<!-- TESTIMONIALS -->
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <div class="leaf-divider sec-label mb-4 justify-center">Testimonials</div>
-      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark">
-        What Farmers <em class="not-italic text-primary">Are Saying</em>
-      </h2>
+      <div class="leaf-divider sec-label mb-4 justify-center" data-i18n="test.label">Testimonials</div>
+      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark" data-i18n="test.h2">What Farmers <em class="not-italic text-primary">Are Saying</em></h2>
     </div>
-
     <div class="grid md:grid-cols-3 gap-7">
-
-      <!-- Testimonial 1 -->
       <div class="testimonial-card bg-cream p-8 rounded-2xl relative">
         <div class="text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
-        <div class="stars flex gap-1 mb-4">
-          <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
-        </div>
-        <p class="text-gray-600 leading-relaxed mb-7 text-sm">
-          "MooScan detected an early-stage mastitis in one of our cows two days before we would have noticed manually. That early alert alone saved us from a contaminated batch worth thousands of dirhams."
-        </p>
+        <div class="stars flex gap-1 mb-4"><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i></div>
+        <p class="text-gray-600 leading-relaxed mb-7 text-sm" data-i18n="test.q1">"MooScan detected an early-stage mastitis in one of our cows two days before we would have noticed manually. That early alert alone saved us from a contaminated batch worth thousands of dirhams."</p>
         <div class="flex items-center gap-4">
-          <!-- <img src="" alt="Farmer" class="w-12 h-12 rounded-full object-cover" /> -->
           <div>
             <div class="font-heading font-bold text-dark text-base">Hassan Benali</div>
-            <div class="text-primary text-xs font-medium">Dairy Farm Owner, Khouribga</div>
+            <div class="text-primary text-xs font-medium" data-i18n="test.r1">Dairy Farm Owner, Khouribga</div>
           </div>
         </div>
       </div>
-
-      <!-- Testimonial 2 (featured) -->
       <div class="testimonial-card bg-primary p-8 rounded-2xl relative shadow-xl shadow-primary/30">
         <div class="text-6xl text-white/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
-        <div class="stars flex gap-1 mb-4">
-          <i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i>
-        </div>
-        <p class="text-white/85 leading-relaxed mb-7 text-sm">
-          "We manage 80 cows and manually tracking health indicators was an ongoing nightmare. MooScan gave us a dashboard that replaces what would have been two extra farmhands. It paid for itself in the first month."
-        </p>
+        <div class="stars flex gap-1 mb-4"><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i></div>
+        <p class="text-white/85 leading-relaxed mb-7 text-sm" data-i18n="test.q2">"We manage 80 cows and manually tracking health indicators was an ongoing nightmare. MooScan gave us a dashboard that replaces what would have been two extra farmhands. It paid for itself in the first month."</p>
         <div class="flex items-center gap-4">
-          <!-- <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Farm Manager" class="w-12 h-12 rounded-full object-cover ring-2 ring-white/30" /> -->
           <div>
             <div class="font-heading font-bold text-white text-base">Fatima Zahra El Idrissi</div>
-            <div class="text-white/60 text-xs font-medium">Farm Manager, Meknès Region</div>
+            <div class="text-white/60 text-xs font-medium" data-i18n="test.r2">Farm Manager, Meknès Region</div>
           </div>
         </div>
       </div>
-
-      <!-- Testimonial 3 -->
       <div class="testimonial-card bg-cream p-8 rounded-2xl relative">
         <div class="text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
-        <div class="stars flex gap-1 mb-4">
-          <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="far fa-star text-sm"></i>
-        </div>
-        <p class="text-gray-600 leading-relaxed mb-7 text-sm">
-          "As a vet, MooScan has transformed how I support my farm clients. I can review cow data remotely and advise before making a farm visit — faster care and fewer emergency call-outs."
-        </p>
+        <div class="stars flex gap-1 mb-4"><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="far fa-star text-sm"></i></div>
+        <p class="text-gray-600 leading-relaxed mb-7 text-sm" data-i18n="test.q3">"As a vet, MooScan has transformed how I support my farm clients. I can review cow data remotely and advise before making a farm visit — faster care and fewer emergency call-outs."</p>
         <div class="flex items-center gap-4">
-          <!-- <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Vet" class="w-12 h-12 rounded-full object-cover" /> -->
           <div>
             <div class="font-heading font-bold text-dark text-base">Dr. Youssef Karimi</div>
-            <div class="text-primary text-xs font-medium">Livestock Veterinarian, Safi</div>
+            <div class="text-primary text-xs font-medium" data-i18n="test.r3">Livestock Veterinarian, Safi</div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     CTA BANNER — SIAM 2026
-══════════════════════════════════════════ -->
+<!-- CTA -->
 <section id="contact" class="relative py-24 overflow-hidden">
   <div class="absolute inset-0">
-    <img src="images/contact.png" alt="Farm" class="w-full h-full object-cover" />
+    <img src="images/contact.png" alt="Farm" class="w-full h-full object-cover img-fade-in" />
     <div class="absolute inset-0 bg-dark/82"></div>
   </div>
   <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
     <div class="leaf-divider sec-label mb-5 justify-center" style="color:#c8a84b">SIAM 2026 · Meknes</div>
-    <h2 class="font-heading text-4xl lg:text-5xl font-bold text-white mb-6">
-      Smarter Monitoring, <em class="not-italic text-accent">Healthier Cows,</em> Better Milk.
-    </h2>
-    <p class="text-gray-300 text-lg mb-10">
-      Meet the YaneCode Digital team at SIAM 2026 for a live demo on tablet and conversations with our engineers. Or reach out now to start your pilot.
-    </p>
+    <h2 class="font-heading text-4xl lg:text-5xl font-bold text-white mb-6" data-i18n="cta.h2">Smarter Monitoring, <em class="not-italic text-accent">Healthier Cows,</em> Better Milk.</h2>
+    <p class="text-gray-300 text-lg mb-10" data-i18n="cta.p">Meet the YaneCode Digital team at SIAM 2026 for a live demo on tablet and conversations with our engineers. Or reach out now to start your pilot.</p>
     <div class="flex flex-wrap justify-center gap-4">
-      <a href="mailto:contact@yanecode.com" class="btn-green inline-flex items-center gap-2 px-8 py-4 rounded font-semibold text-base">
-        Contact Us <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://www.yanecode.com" class="inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base border-2 border-white/50 text-white hover:bg-white hover:text-dark transition-all">
-        <i class="fas fa-globe"></i> Visit yanecode.com
-      </a>
+      <a href="mailto:contact@yanecode.com" class="btn-green inline-flex items-center gap-2 px-8 py-4 rounded font-semibold text-base" data-i18n="cta.btn1">Contact Us <i class="fas fa-envelope"></i></a>
+      <a href="https://www.yanecode.com" class="inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base border-2 border-white/50 text-white hover:bg-white hover:text-dark transition-all" data-i18n="cta.btn2"><i class="fas fa-globe"></i> Visit yanecode.com</a>
     </div>
-    <!-- Contact details -->
     <div class="mt-10 flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
       <span class="flex items-center gap-2"><i class="fas fa-envelope text-primary"></i> contact@yanecode.com</span>
       <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-primary"></i> Safi, Morocco</span>
@@ -1027,47 +734,32 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     BLOG / INSIGHTS
-══════════════════════════════════════════ -->
-
-
-<!-- ══════════════════════════════════════════
-     NEWSLETTER BANNER
-══════════════════════════════════════════ -->
+<!-- NEWSLETTER -->
 <section class="bg-primary py-14">
   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
     <div>
-      <h3 class="font-heading text-2xl font-bold text-white mb-1">Stay Ahead — Subscribe for MooScan Updates</h3>
-      <p class="text-white/70 text-sm">Join farmers &amp; agri-tech enthusiasts getting early access news, demo invites &amp; research insights.</p>
+      <h3 class="font-heading text-2xl font-bold text-white mb-1" data-i18n="nl.h3">Stay Ahead — Subscribe for MooScan Updates</h3>
+      <p class="text-white/70 text-sm" data-i18n="nl.p">Join farmers &amp; agri-tech enthusiasts getting early access news, demo invites &amp; research insights.</p>
     </div>
     <form class="flex gap-3 w-full md:w-auto" onsubmit="return false;">
-      <input type="email" placeholder="Enter your email address…" class="flex-1 md:w-72 px-5 py-3.5 rounded font-body text-sm outline-none text-dark placeholder-gray-400" />
-      <button type="submit" class="bg-dark text-white px-6 py-3.5 rounded font-semibold text-sm hover:bg-primary-dk transition-colors whitespace-nowrap flex items-center gap-2">
-        Subscribe <i class="fas fa-paper-plane text-xs"></i>
-      </button>
+      <input type="email" id="nl-input" data-i18n-placeholder="nl.placeholder" placeholder="Enter your email address…" class="flex-1 md:w-72 px-5 py-3.5 rounded font-body text-sm outline-none text-dark placeholder-gray-400" />
+      <button type="submit" class="bg-dark text-white px-6 py-3.5 rounded font-semibold text-sm hover:bg-primary-dk transition-colors whitespace-nowrap flex items-center gap-2" data-i18n="nl.btn">Subscribe <i class="fas fa-paper-plane text-xs"></i></button>
     </form>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer class="bg-dark text-gray-400 pt-20 pb-8">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
-
-      <!-- Col 1 – Brand -->
       <div>
         <a href="#" class="flex items-center gap-3 mb-5">
           <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-            <img src="Logo MooScan.png" alt="">
+            <img src="Logo MooScan.png" alt="MooScan" class="w-7 h-7 object-contain" />
           </div>
           <span class="font-heading text-2xl font-bold text-white">Moo<em class="not-italic text-primary">Scan</em></span>
         </a>
-        <p class="text-sm leading-relaxed mb-6">
-          Smart IoT &amp; AI monitoring for dairy cows — by YaneCode Digital. Smarter monitoring, healthier cows, better milk.
-        </p>
+        <p class="text-sm leading-relaxed mb-6" data-i18n="ft.brand.p">Smart IoT &amp; AI monitoring for dairy cows — by YaneCode Digital. Smarter monitoring, healthier cows, better milk.</p>
         <div class="flex gap-3">
           <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-linkedin-in text-xs text-white"></i></a>
           <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-twitter text-xs text-white"></i></a>
@@ -1075,108 +767,363 @@
           <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-youtube text-xs text-white"></i></a>
         </div>
       </div>
-
-      <!-- Col 2 – Navigation -->
       <div>
-        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2">Navigation</h5>
+        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2" data-i18n="ft.nav.h">Navigation</h5>
         <ul class="space-y-3 text-sm">
-          <li><a href="#context"  class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> The Problem</a></li>
-          <li><a href="#solution" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Our Solution</a></li>
-          <li><a href="#data"     class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Data Streams</a></li>
-          <li><a href="#ai"       class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> AI Engine</a></li>
-          <li><a href="#roadmap"  class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Roadmap</a></li>
-          <li><a href="#contact"  class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Contact Us</a></li>
+          <li><a href="#context"  class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.nav.problem">The Problem</span></a></li>
+          <li><a href="#solution" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.nav.solution">Our Solution</span></a></li>
+          <li><a href="#data"     class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.nav.data">Data Streams</span></a></li>
+          <li><a href="#ai"       class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.nav.ai">AI Engine</span></a></li>
+          <li><a href="#roadmap"  class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.nav.roadmap">Roadmap</span></a></li>
+          <li><a href="#contact"  class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.nav.contact">Contact Us</span></a></li>
         </ul>
       </div>
-
-      <!-- Col 3 – Features -->
       <div>
-        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2">Features</h5>
+        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2" data-i18n="ft.feat.h">Features</h5>
         <ul class="space-y-3 text-sm">
-          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> IoT Sensor Network</a></li>
-          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Real-Time Dashboard</a></li>
-          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> AI Mastitis Detection</a></li>
-          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Behavioural Analytics</a></li>
-          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Smart Alerts</a></li>
-          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Vet Integration</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.feat.iot">IoT Sensor Network</span></a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.feat.dash">Real-Time Dashboard</span></a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.feat.ai">AI Mastitis Detection</span></a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.feat.beh">Behavioural Analytics</span></a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.feat.alert">Smart Alerts</span></a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> <span data-i18n="ft.feat.vet">Vet Integration</span></a></li>
         </ul>
       </div>
-
-      <!-- Col 4 – Contact -->
       <div>
-        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2">Contact</h5>
+        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2" data-i18n="ft.contact.h">Contact</h5>
         <ul class="space-y-4 text-sm">
-          <li class="flex gap-3 items-start">
-            <i class="fas fa-map-marker-alt text-primary mt-0.5 flex-shrink-0"></i>
-            <span>Safi, Morocco · SIAM 2026 — Meknes Exhibition Centre</span>
-          </li>
-          <li class="flex gap-3 items-center">
-            <i class="fas fa-envelope text-primary flex-shrink-0"></i>
-            <a href="mailto:contact@yanecode.com" class="hover:text-primary-lt transition-colors">contact@yanecode.com</a>
-          </li>
-          <li class="flex gap-3 items-center">
-            <i class="fas fa-globe text-primary flex-shrink-0"></i>
-            <a href="https://www.yanecode.com" class="hover:text-primary-lt transition-colors">www.yanecode.com</a>
-          </li>
-          <li class="flex gap-3 items-start">
-            <i class="fas fa-calendar text-primary mt-0.5 flex-shrink-0"></i>
-            <span>SIAM 2026 · YaneCode Booth<br />Live demo available on-site</span>
-          </li>
+          <li class="flex gap-3 items-start"><i class="fas fa-map-marker-alt text-primary mt-0.5 flex-shrink-0"></i><span data-i18n="ft.addr">Safi, Morocco · SIAM 2026 — Meknes Exhibition Centre</span></li>
+          <li class="flex gap-3 items-center"><i class="fas fa-envelope text-primary flex-shrink-0"></i><a href="mailto:contact@yanecode.com" class="hover:text-primary-lt transition-colors">contact@yanecode.com</a></li>
+          <li class="flex gap-3 items-center"><i class="fas fa-globe text-primary flex-shrink-0"></i><a href="https://www.yanecode.com" class="hover:text-primary-lt transition-colors">www.yanecode.com</a></li>
+          <li class="flex gap-3 items-start"><i class="fas fa-calendar text-primary mt-0.5 flex-shrink-0"></i><span data-i18n="ft.hours">SIAM 2026 · YaneCode Booth<br />Live demo available on-site</span></li>
         </ul>
       </div>
     </div>
-
-    <!-- Bottom bar -->
     <div class="border-t border-white/10 pt-7 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-      <p>© 2026 <a href="#" class="text-primary hover:text-primary-lt">YaneCode Digital</a>. All Rights Reserved. — MooScan Project</p>
+      <p data-i18n="ft.copy">© 2026 <a href="#" class="text-primary hover:text-primary-lt">YaneCode Digital</a>. All Rights Reserved. — MooScan Project</p>
       <div class="flex gap-5">
-        <a href="#" class="hover:text-primary-lt transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-primary-lt transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-primary-lt transition-colors" data-i18n="ft.privacy">Privacy Policy</a>
+        <a href="#" class="hover:text-primary-lt transition-colors" data-i18n="ft.terms">Terms of Service</a>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════
-     BACK TO TOP
-══════════════════════════════════════════ -->
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-  class="fixed bottom-7 right-7 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-dk transition-all duration-300 opacity-0 pointer-events-none z-50"
-  aria-label="Back to top">
+  class="fixed bottom-7 right-7 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-dk transition-all duration-300 opacity-0 pointer-events-none z-50">
   <i class="fas fa-chevron-up"></i>
 </button>
 
-<!-- ══════════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════════ -->
 <script>
-  /* Mobile menu toggle */
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+/* ─── Translations ─────────────────────────────────────────── */
+const T = {
+  en: {
+    'topbar.pilot': 'Live pilot running on Moroccan farms',
+    'nav.context': 'Context', 'nav.solution': 'Solution', 'nav.data': 'Data',
+    'nav.ai': 'AI', 'nav.roadmap': 'Roadmap', 'nav.contact': 'Contact',
+    'nav.demo': 'Request Demo <i class="fas fa-arrow-right text-xs"></i>',
+    'hero.label': 'Smart Dairy Farming',
+    'hero.h1': 'Know Your <br />Cows <em class="not-italic text-accent">Before</em> <br />It\'s Too Late',
+    'hero.lead': 'MooScan is a real-time IoT &amp; AI monitoring system that detects mastitis early, protects milk quality, and puts every cow\'s health in the palm of your hand.',
+    'hero.cta1': 'See How It Works <i class="fas fa-arrow-right"></i>',
+    'hero.cta2': 'Request a Demo <i class="fas fa-play text-xs"></i>',
+    'hero.scroll': 'Scroll to explore',
+    'hero.badge1': 'Detection Accuracy', 'hero.badge2': 'Live Monitoring', 'hero.badge3': '+ AI Powered',
+    'mq.1': 'Real-Time Monitoring', 'mq.2': 'Early Mastitis Detection',
+    'mq.3': 'Healthier Cows', 'mq.4': 'Better Milk',
+    'intro.label': 'About the Project',
+    'intro.h2': 'MooScan is a project by&nbsp;<span class="kw">YaneCode Digital</span>,<br class="hidden md:block" /> presented at&nbsp;<span class="kw kw-accent">SIAM&nbsp;2026</span>.',
+    'intro.body': 'A smart&nbsp;<span class="kw">IoT&nbsp;&amp;&nbsp;AI</span>&nbsp;monitoring system designed specifically for dairy cow management — bringing real-time intelligence to every farm.',
+    'ctx.label': 'The Problem',
+    'ctx.h2': 'Without Monitoring, <em class="not-italic text-primary">Disease Spreads Unseen</em>',
+    'ctx.p1': 'Every day, dairy farms face silent losses. Without continuous monitoring, the earliest signs of disease go unnoticed — until milk quality and profitability both suffer.',
+    'ctx.p2': 'Traditional methods are reactive. By the time mastitis is spotted manually, contaminated milk has already entered the pipeline and the cow\'s health has deteriorated.',
+    'ctx.li1': 'Late mastitis detection — quality already dropped',
+    'ctx.li2': 'Manual monitoring — faint signals get missed 24/7',
+    'ctx.li3': 'Rejected milk batches — lost revenue and lost trust',
+    'ctx.li4': 'No digital data — decisions based on intuition alone',
+    'ctx.cta': 'See the Solution <i class="fas fa-arrow-right text-sm"></i>',
+    'ctx.badge': 'Silent Losses', 'ctx.badge_sub': 'Every day, on every farm',
+    'sol.label': 'One Integrated System',
+    'sol.h2': 'From Sensor to <em class="not-italic text-primary">Farmer Decision</em>',
+    'sol.lead': 'MooScan collects, transmits, analyses and alerts — on a closed loop, for every cow, every day.',
+    'sol.s1.h': 'IoT Sensors', 'sol.s1.p': 'Real-time capture of milk, health and behavioural signals directly on and around each cow.',
+    'sol.s2.h': 'Secure Cloud', 'sol.s2.p': 'Encrypted ingestion, storage and processing at scale — accessible from anywhere, anytime.',
+    'sol.s3.h': 'AI Engine', 'sol.s3.p': 'Anomaly detection, disease classification and mastitis risk forecasting for every individual cow.',
+    'sol.s4.h': 'Alerts &amp; Action', 'sol.s4.p': 'Clear recommendations delivered to the farmer\'s dashboard — before symptoms appear.',
+    'sol.learn': 'Learn More <i class="fas fa-arrow-right text-xs"></i>',
+    'data.label': 'Three Data Worlds',
+    'data.h2': 'One Complete <em class="not-italic text-primary">View of the Cow</em>',
+    'data.lead': 'Fusing milk, health and behavioural streams reveals what no single signal can.',
+    'data.milk': 'Milk Data', 'data.health': 'Health Data', 'data.behav': 'Behavioural Data',
+    'data.milk.yield': 'Yield (L/day)', 'data.milk.cond': 'Conductivity', 'data.milk.temp': 'Temperature',
+    'data.milk.flow': 'Flow Rate', 'data.milk.scc': 'Somatic Cell Proxy',
+    'data.health.temp': 'Body Temperature', 'data.health.hr': 'Heart &amp; Respiration',
+    'data.health.rumen': 'Rumen Activity', 'data.health.udder': 'Udder Condition', 'data.health.markers': 'Disease Markers',
+    'data.behav.rum': 'Rumination Time', 'data.behav.act': 'Activity / Steps',
+    'data.behav.pos': 'Standing vs Lying', 'data.behav.feed': 'Feeding &amp; Drinking', 'data.behav.heat': 'Heat Signs',
+    'why.label': 'Why MooScan',
+    'why.h2': 'Why Choose <em class="not-italic text-primary">MooScan?</em>',
+    'why.lead': 'We go beyond traditional farm monitoring. Our integrated IoT + AI platform provides the earliest warning system available — turning raw signals into clear action.',
+    'why.f1.h': 'Early Warning System', 'why.f1.p': 'MooScan flags anomalies before clinical symptoms appear — giving you time to act, not react.',
+    'why.f2.h': 'Per-Animal Personalisation', 'why.f2.p': 'Every cow gets her own baseline. Deviations are caught individually, not lost in herd averages.',
+    'why.f3.h': 'Multi-Protocol Connectivity', 'why.f3.p': 'Wi-Fi, LoRa or 4G — MooScan works on farms of any size, even in low-connectivity rural areas.',
+    'why.f4.h': 'End-to-End Data Security', 'why.f4.p': 'All signals are encrypted from edge to cloud. Your farm data stays yours, always.',
+    'stat.acc': 'Detection Accuracy', 'stat.sig': 'Signals Tracked',
+    'stat.mon': 'Live Monitoring', 'stat.farms': 'Partner Farms',
+    'ai.label': 'AI Intelligence',
+    'ai.h2': 'AI Turns Signals <em class="not-italic text-primary">Into Insight</em>',
+    'ai.lead': 'Every cow gets her own baseline. MooScan flags what deviates — before it\'s too late. Our AI engine continuously learns from cross-signal patterns to sharpen predictions over time.',
+    'ai.status.healthy': 'HEALTHY', 'ai.status.suspicious': 'SUSPICIOUS', 'ai.status.intervene': 'INTERVENE',
+    'ai.c1.h': 'Anomaly Detection', 'ai.c1.p': 'Spot abnormal cross-signal patterns before they escalate.',
+    'ai.c2.h': 'Classification', 'ai.c2.p': 'Healthy · suspicious · intervene — clear labels for every cow.',
+    'ai.c3.h': 'Prediction', 'ai.c3.p': 'Forecast mastitis risk windows days ahead of clinical signs.',
+    'ai.c4.h': 'Early Warning', 'ai.c4.p': 'Actionable alerts delivered before symptoms even appear.',
+    'ai.demo': 'See a Live Demo <i class="fas fa-arrow-right text-sm"></i>',
+    'arch.label': 'System Architecture',
+    'arch.h2': 'From Signal on the Ground <em class="not-italic text-primary">to Farmer Decision</em>',
+    'arch.s1.h': 'Edge', 'arch.s1.p': 'Sensors on &amp; around the cow',
+    'arch.s2.h': 'Gateway', 'arch.s3.h': 'Cloud', 'arch.s3.p': 'Secure storage &amp; processing',
+    'arch.s4.p': 'Analytics &amp; predictions', 'arch.s5.h': 'App', 'arch.s5.p': 'Dashboard &amp; alerts',
+    'pil.label': 'Our Vision',
+    'pil.h2': 'The Four Pillars of <em class="not-italic text-primary">MooScan</em>',
+    'pil.p1.h': 'Animal Welfare', 'pil.p1.p': 'Healthier cows through continuous, compassionate monitoring. Better welfare means better productivity.',
+    'pil.p2.h': 'Food Quality', 'pil.p2.p': 'Superior milk quality through early intervention leads to premium pricing and fewer rejected batches.',
+    'pil.p3.h': 'Food Sovereignty', 'pil.p3.p': 'Supporting local, sustainable farming practices across Morocco and the African continent.',
+    'pil.p4.h': 'Digital Transformation', 'pil.p4.p': 'Modernising agricultural operations — bringing data-driven decisions to every farm, large or small.',
+    'rd.label': 'Roadmap',
+    'rd.h2': 'From the Moroccan Farm <em class="not-italic text-primary">to the Continent</em>',
+    'rd.now.title': 'Now', 'rd.now.label': 'Pilot Phase', 'rd.now.p': 'Pilot deployment on Moroccan partner farms',
+    'rd.2026.label': 'Predictive Analytics', 'rd.2026.p': 'Per-animal risk forecasting at scale',
+    'rd.2027.label': 'Mobile App', 'rd.2027.p': 'iOS &amp; Android with offline mode',
+    'rd.2028.label': 'Vet Integration', 'rd.2028.p': 'Farm ↔ vet decision link for faster care',
+    'rd.2029.label': 'Continental Scale', 'rd.2029.p': 'Expand to other livestock across Africa',
+    'test.label': 'Testimonials',
+    'test.h2': 'What Farmers <em class="not-italic text-primary">Are Saying</em>',
+    'test.q1': '"MooScan detected an early-stage mastitis in one of our cows two days before we would have noticed manually. That early alert alone saved us from a contaminated batch worth thousands of dirhams."',
+    'test.r1': 'Dairy Farm Owner, Khouribga',
+    'test.q2': '"We manage 80 cows and manually tracking health indicators was an ongoing nightmare. MooScan gave us a dashboard that replaces what would have been two extra farmhands. It paid for itself in the first month."',
+    'test.r2': 'Farm Manager, Meknès Region',
+    'test.q3': '"As a vet, MooScan has transformed how I support my farm clients. I can review cow data remotely and advise before making a farm visit — faster care and fewer emergency call-outs."',
+    'test.r3': 'Livestock Veterinarian, Safi',
+    'cta.h2': 'Smarter Monitoring, <em class="not-italic text-accent">Healthier Cows,</em> Better Milk.',
+    'cta.p': 'Meet the YaneCode Digital team at SIAM 2026 for a live demo on tablet and conversations with our engineers. Or reach out now to start your pilot.',
+    'cta.btn1': 'Contact Us <i class="fas fa-envelope"></i>',
+    'cta.btn2': '<i class="fas fa-globe"></i> Visit yanecode.com',
+    'nl.h3': 'Stay Ahead — Subscribe for MooScan Updates',
+    'nl.p': 'Join farmers &amp; agri-tech enthusiasts getting early access news, demo invites &amp; research insights.',
+    'nl.placeholder': 'Enter your email address…', 'nl.btn': 'Subscribe <i class="fas fa-paper-plane text-xs"></i>',
+    'ft.brand.p': 'Smart IoT &amp; AI monitoring for dairy cows — by YaneCode Digital. Smarter monitoring, healthier cows, better milk.',
+    'ft.nav.h': 'Navigation', 'ft.feat.h': 'Features', 'ft.contact.h': 'Contact',
+    'ft.nav.problem': 'The Problem', 'ft.nav.solution': 'Our Solution', 'ft.nav.data': 'Data Streams',
+    'ft.nav.ai': 'AI Engine', 'ft.nav.roadmap': 'Roadmap', 'ft.nav.contact': 'Contact Us',
+    'ft.feat.iot': 'IoT Sensor Network', 'ft.feat.dash': 'Real-Time Dashboard',
+    'ft.feat.ai': 'AI Mastitis Detection', 'ft.feat.beh': 'Behavioural Analytics',
+    'ft.feat.alert': 'Smart Alerts', 'ft.feat.vet': 'Vet Integration',
+    'ft.addr': 'Safi, Morocco · SIAM 2026 — Meknes Exhibition Centre',
+    'ft.hours': 'SIAM 2026 · YaneCode Booth<br />Live demo available on-site',
+    'ft.copy': '© 2026 <a href="#" class="text-primary hover:text-primary-lt">YaneCode Digital</a>. All Rights Reserved. — MooScan Project',
+    'ft.privacy': 'Privacy Policy', 'ft.terms': 'Terms of Service',
+  },
+  fr: {
+    'topbar.pilot': 'Pilote en cours sur des fermes marocaines',
+    'nav.context': 'Contexte', 'nav.solution': 'Solution', 'nav.data': 'Données',
+    'nav.ai': 'IA', 'nav.roadmap': 'Feuille de route', 'nav.contact': 'Contact',
+    'nav.demo': 'Demander une démo <i class="fas fa-arrow-right text-xs"></i>',
+    'hero.label': 'Agriculture Laitière Intelligente',
+    'hero.h1': 'Connaissez Vos <br />Vaches <em class="not-italic text-accent">Avant</em> <br />Qu\'il Soit Trop Tard',
+    'hero.lead': 'MooScan est un système de surveillance IoT &amp; IA en temps réel qui détecte la mammite tôt, protège la qualité du lait et met la santé de chaque vache dans votre poche.',
+    'hero.cta1': 'Voir Comment Ça Marche <i class="fas fa-arrow-right"></i>',
+    'hero.cta2': 'Demander une Démo <i class="fas fa-play text-xs"></i>',
+    'hero.scroll': 'Défiler pour explorer',
+    'hero.badge1': 'Précision de Détection', 'hero.badge2': 'Surveillance en Direct', 'hero.badge3': '+ Propulsé par l\'IA',
+    'mq.1': 'Surveillance en Temps Réel', 'mq.2': 'Détection Précoce de la Mammite',
+    'mq.3': 'Vaches Plus Saines', 'mq.4': 'Meilleur Lait',
+    'intro.label': 'À Propos du Projet',
+    'intro.h2': 'MooScan est un projet de&nbsp;<span class="kw">YaneCode Digital</span>,<br class="hidden md:block" /> présenté à&nbsp;<span class="kw kw-accent">SIAM&nbsp;2026</span>.',
+    'intro.body': 'Un système de surveillance&nbsp;<span class="kw">IoT&nbsp;&amp;&nbsp;IA</span>&nbsp;intelligent conçu spécifiquement pour la gestion des vaches laitières — apportant l\'intelligence temps réel à chaque ferme.',
+    'ctx.label': 'Le Problème',
+    'ctx.h2': 'Sans Surveillance, <em class="not-italic text-primary">La Maladie Se Propage en Silence</em>',
+    'ctx.p1': 'Chaque jour, les fermes laitières subissent des pertes silencieuses. Sans surveillance continue, les premiers signes de maladie passent inaperçus — jusqu\'à ce que la qualité du lait et la rentabilité en pâtissent.',
+    'ctx.p2': 'Les méthodes traditionnelles sont réactives. Le temps que la mammite soit détectée manuellement, le lait contaminé a déjà rejoint la chaîne et la santé de la vache s\'est dégradée.',
+    'ctx.li1': 'Détection tardive de la mammite — qualité déjà altérée',
+    'ctx.li2': 'Surveillance manuelle — les signaux faibles sont manqués 24h/24',
+    'ctx.li3': 'Lots de lait rejetés — perte de revenus et de confiance',
+    'ctx.li4': 'Aucune donnée numérique — décisions fondées sur l\'intuition seule',
+    'ctx.cta': 'Voir la Solution <i class="fas fa-arrow-right text-sm"></i>',
+    'ctx.badge': 'Pertes Silencieuses', 'ctx.badge_sub': 'Chaque jour, sur chaque ferme',
+    'sol.label': 'Un Système Intégré',
+    'sol.h2': 'Du Capteur à la <em class="not-italic text-primary">Décision de l\'Éleveur</em>',
+    'sol.lead': 'MooScan collecte, transmet, analyse et alerte — en boucle fermée, pour chaque vache, chaque jour.',
+    'sol.s1.h': 'Capteurs IoT', 'sol.s1.p': 'Capture en temps réel des signaux laitiers, sanitaires et comportementaux directement sur et autour de chaque vache.',
+    'sol.s2.h': 'Cloud Sécurisé', 'sol.s2.p': 'Ingestion, stockage et traitement chiffrés à grande échelle — accessible partout, à tout moment.',
+    'sol.s3.h': 'Moteur IA', 'sol.s3.p': 'Détection d\'anomalies, classification des maladies et prévision du risque de mammite pour chaque vache.',
+    'sol.s4.h': 'Alertes &amp; Action', 'sol.s4.p': 'Des recommandations claires envoyées sur le tableau de bord de l\'éleveur — avant l\'apparition des symptômes.',
+    'sol.learn': 'En Savoir Plus <i class="fas fa-arrow-right text-xs"></i>',
+    'data.label': 'Trois Univers de Données',
+    'data.h2': 'Une Vue Complète <em class="not-italic text-primary">de la Vache</em>',
+    'data.lead': 'La fusion des flux lait, santé et comportemental révèle ce qu\'aucun signal seul ne peut.',
+    'data.milk': 'Données Laitières', 'data.health': 'Données de Santé', 'data.behav': 'Données Comportementales',
+    'data.milk.yield': 'Production (L/j)', 'data.milk.cond': 'Conductivité', 'data.milk.temp': 'Température',
+    'data.milk.flow': 'Débit', 'data.milk.scc': 'Proxy Cellules Somatiques',
+    'data.health.temp': 'Température Corporelle', 'data.health.hr': 'Cœur &amp; Respiration',
+    'data.health.rumen': 'Activité Ruminale', 'data.health.udder': 'État du Pis', 'data.health.markers': 'Marqueurs de Maladie',
+    'data.behav.rum': 'Temps de Rumination', 'data.behav.act': 'Activité / Pas',
+    'data.behav.pos': 'Debout vs Couché', 'data.behav.feed': 'Alimentation &amp; Abreuvement', 'data.behav.heat': 'Signes de Chaleur',
+    'why.label': 'Pourquoi MooScan',
+    'why.h2': 'Pourquoi Choisir <em class="not-italic text-primary">MooScan ?</em>',
+    'why.lead': 'Nous allons au-delà de la surveillance agricole traditionnelle. Notre plateforme IoT + IA intégrée offre le système d\'alerte précoce le plus avancé — transformant les signaux bruts en actions claires.',
+    'why.f1.h': 'Système d\'Alerte Précoce', 'why.f1.p': 'MooScan signale les anomalies avant l\'apparition des symptômes cliniques — vous donnant le temps d\'agir, pas de réagir.',
+    'why.f2.h': 'Personnalisation par Animal', 'why.f2.p': 'Chaque vache obtient sa propre référence. Les déviations sont détectées individuellement, pas noyées dans les moyennes du troupeau.',
+    'why.f3.h': 'Connectivité Multi-Protocole', 'why.f3.p': 'Wi-Fi, LoRa ou 4G — MooScan fonctionne sur des fermes de toute taille, même dans les zones rurales peu connectées.',
+    'why.f4.h': 'Sécurité des Données de Bout en Bout', 'why.f4.p': 'Tous les signaux sont chiffrés de l\'edge au cloud. Vos données agricoles vous appartiennent, toujours.',
+    'stat.acc': 'Précision de Détection', 'stat.sig': 'Signaux Suivis',
+    'stat.mon': 'Surveillance en Direct', 'stat.farms': 'Fermes Partenaires',
+    'ai.label': 'Intelligence Artificielle',
+    'ai.h2': 'L\'IA Transforme les Signaux <em class="not-italic text-primary">en Décision</em>',
+    'ai.lead': 'Chaque vache a sa propre référence. MooScan signale ce qui dévie — avant qu\'il ne soit trop tard. Notre moteur IA apprend en continu des patterns multi-signaux pour affiner les prédictions.',
+    'ai.status.healthy': 'SAINE', 'ai.status.suspicious': 'SUSPECTE', 'ai.status.intervene': 'INTERVENIR',
+    'ai.c1.h': 'Détection d\'Anomalies', 'ai.c1.p': 'Identifiez les schémas anormaux entre signaux avant qu\'ils n\'escaladent.',
+    'ai.c2.h': 'Classification', 'ai.c2.p': 'Saine · suspecte · intervenir — des étiquettes claires pour chaque vache.',
+    'ai.c3.h': 'Prédiction', 'ai.c3.p': 'Prévoyez les fenêtres de risque de mammite des jours avant les signes cliniques.',
+    'ai.c4.h': 'Alerte Précoce', 'ai.c4.p': 'Des alertes actionnables avant même l\'apparition des symptômes.',
+    'ai.demo': 'Voir une Démo en Direct <i class="fas fa-arrow-right text-sm"></i>',
+    'arch.label': 'Architecture Système',
+    'arch.h2': 'Du Signal sur le Terrain <em class="not-italic text-primary">à la Décision de l\'Éleveur</em>',
+    'arch.s1.h': 'Edge', 'arch.s1.p': 'Capteurs sur et autour de la vache',
+    'arch.s2.h': 'Passerelle', 'arch.s3.h': 'Cloud', 'arch.s3.p': 'Stockage &amp; traitement sécurisé',
+    'arch.s4.p': 'Analyses &amp; prédictions', 'arch.s5.h': 'App', 'arch.s5.p': 'Tableau de bord &amp; alertes',
+    'pil.label': 'Notre Vision',
+    'pil.h2': 'Les Quatre Piliers de <em class="not-italic text-primary">MooScan</em>',
+    'pil.p1.h': 'Bien-être Animal', 'pil.p1.p': 'Des vaches plus saines grâce à une surveillance continue et bienveillante. Un meilleur bien-être signifie une meilleure productivité.',
+    'pil.p2.h': 'Qualité Alimentaire', 'pil.p2.p': 'Une qualité de lait supérieure grâce à l\'intervention précoce conduit à une tarification premium et moins de lots rejetés.',
+    'pil.p3.h': 'Souveraineté Alimentaire', 'pil.p3.p': 'Soutenir des pratiques agricoles locales et durables au Maroc et sur le continent africain.',
+    'pil.p4.h': 'Transformation Numérique', 'pil.p4.p': 'Moderniser les opérations agricoles — apporter des décisions basées sur les données à chaque ferme, grande ou petite.',
+    'rd.label': 'Feuille de Route',
+    'rd.h2': 'De la Ferme Marocaine <em class="not-italic text-primary">au Continent</em>',
+    'rd.now.title': 'Maintenant', 'rd.now.label': 'Phase Pilote', 'rd.now.p': 'Déploiement pilote sur des fermes partenaires marocaines',
+    'rd.2026.label': 'Analytique Prédictive', 'rd.2026.p': 'Prévision du risque par animal à grande échelle',
+    'rd.2027.label': 'Application Mobile', 'rd.2027.p': 'iOS &amp; Android avec mode hors ligne',
+    'rd.2028.label': 'Intégration Vétérinaire', 'rd.2028.p': 'Lien décisionnel ferme ↔ vétérinaire pour des soins plus rapides',
+    'rd.2029.label': 'Échelle Continentale', 'rd.2029.p': 'Extension à d\'autres animaux d\'élevage en Afrique',
+    'test.label': 'Témoignages',
+    'test.h2': 'Ce Que Disent <em class="not-italic text-primary">les Éleveurs</em>',
+    'test.q1': '"MooScan a détecté une mammite précoce chez l\'une de nos vaches deux jours avant que nous l\'aurions remarqué manuellement. Cette alerte précoce nous a évité un lot contaminé valant des milliers de dirhams."',
+    'test.r1': 'Propriétaire de ferme laitière, Khouribga',
+    'test.q2': '"Nous gérons 80 vaches et suivre manuellement les indicateurs de santé était un cauchemar. MooScan nous a donné un tableau de bord qui remplace deux aides-éleveurs. Il s\'est amorti dès le premier mois."',
+    'test.r2': 'Gestionnaire de ferme, Région de Meknès',
+    'test.q3': '"En tant que vétérinaire, MooScan a transformé mon suivi des fermes clientes. Je peux consulter les données à distance et conseiller avant de me déplacer — des soins plus rapides et moins d\'urgences."',
+    'test.r3': 'Vétérinaire en élevage, Safi',
+    'cta.h2': 'Surveillance Plus Intelligente, <em class="not-italic text-accent">Vaches Plus Saines,</em> Meilleur Lait.',
+    'cta.p': 'Rencontrez l\'équipe YaneCode Digital au SIAM 2026 pour une démo en direct sur tablette et des échanges avec nos ingénieurs. Ou contactez-nous maintenant pour démarrer votre pilote.',
+    'cta.btn1': 'Nous Contacter <i class="fas fa-envelope"></i>',
+    'cta.btn2': '<i class="fas fa-globe"></i> Visiter yanecode.com',
+    'nl.h3': 'Restez Informé — Abonnez-vous aux Actualités MooScan',
+    'nl.p': 'Rejoignez les éleveurs &amp; passionnés d\'agri-tech recevant des nouvelles en avant-première, invitations aux démos &amp; insights de recherche.',
+    'nl.placeholder': 'Entrez votre adresse email…', 'nl.btn': 'S\'abonner <i class="fas fa-paper-plane text-xs"></i>',
+    'ft.brand.p': 'Surveillance IoT &amp; IA intelligente pour vaches laitières — par YaneCode Digital. Surveillance plus intelligente, vaches plus saines, meilleur lait.',
+    'ft.nav.h': 'Navigation', 'ft.feat.h': 'Fonctionnalités', 'ft.contact.h': 'Contact',
+    'ft.nav.problem': 'Le Problème', 'ft.nav.solution': 'Notre Solution', 'ft.nav.data': 'Flux de Données',
+    'ft.nav.ai': 'Moteur IA', 'ft.nav.roadmap': 'Feuille de Route', 'ft.nav.contact': 'Nous Contacter',
+    'ft.feat.iot': 'Réseau de Capteurs IoT', 'ft.feat.dash': 'Tableau de Bord Temps Réel',
+    'ft.feat.ai': 'Détection IA de la Mammite', 'ft.feat.beh': 'Analyses Comportementales',
+    'ft.feat.alert': 'Alertes Intelligentes', 'ft.feat.vet': 'Intégration Vétérinaire',
+    'ft.addr': 'Safi, Maroc · SIAM 2026 — Centre d\'Exposition de Meknès',
+    'ft.hours': 'SIAM 2026 · Stand YaneCode<br />Démo en direct disponible sur place',
+    'ft.copy': '© 2026 <a href="#" class="text-primary hover:text-primary-lt">YaneCode Digital</a>. Tous droits réservés. — Projet MooScan',
+    'ft.privacy': 'Politique de Confidentialité', 'ft.terms': 'Conditions d\'Utilisation',
+  }
+};
+
+/* ─── Language engine ──────────────────────────────────────── */
+let currentLang = localStorage.getItem('moo-lang') || 'en';
+
+function setLang(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+  localStorage.setItem('moo-lang', lang);
+
+  /* Brief fade for smooth swap */
+  document.body.classList.add('switching');
+  setTimeout(() => {
+    applyLang(lang);
+    document.body.classList.remove('switching');
+  }, 180);
+}
+
+function applyLang(lang) {
+  const dict = T[lang];
+
+  /* innerHTML nodes */
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
   });
 
-  /* Sticky navbar shadow on scroll + back-to-top */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('shadow-md', window.scrollY > 50);
-    const btn = document.getElementById('backToTop');
-    btn.classList.toggle('opacity-0', window.scrollY <= 400);
-    btn.classList.toggle('pointer-events-none', window.scrollY <= 400);
+  /* Placeholder inputs */
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (dict[key] !== undefined) el.placeholder = dict[key];
   });
 
-  /* Smooth scroll for nav links */
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        mobileMenu.classList.add('hidden');
+  /* Toggle button states */
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+
+  /* html lang attribute */
+  document.documentElement.lang = lang;
+}
+
+/* ─── Boot ─────────────────────────────────────────────────── */
+applyLang(currentLang);
+if (currentLang === 'fr') {
+  document.getElementById('btn-fr').classList.add('active');
+  document.getElementById('btn-en').classList.remove('active');
+}
+
+/* ─── Navbar scroll shadow + back-to-top ───────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('shadow-md', window.scrollY > 50);
+  const btn = document.getElementById('backToTop');
+  btn.classList.toggle('opacity-0', window.scrollY <= 400);
+  btn.classList.toggle('pointer-events-none', window.scrollY <= 400);
+});
+
+/* ─── Mobile menu ──────────────────────────────────────────── */
+document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+});
+
+/* ─── Smooth scroll ────────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('mobileMenu').classList.add('hidden');
+    }
+  });
+});
+
+/* ─── Image entry animations (IntersectionObserver) ────────── */
+(function () {
+  const selector = '.img-fade-in, .img-slide-up, .img-zoom-in';
+  const imgs = document.querySelectorAll(selector);
+  if (!imgs.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
       }
     });
-  });
+  }, { threshold: 0.15 });
+
+  imgs.forEach(img => observer.observe(img));
+})();
 </script>
 </body>
 </html>
