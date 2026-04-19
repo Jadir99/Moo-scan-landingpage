@@ -53,8 +53,103 @@
     .team-card .socials          { opacity: 0; transform: translateY(12px); transition: all .35s ease; }
     .team-card:hover .socials    { opacity: 1; transform: translateY(0); }
     .team-card:hover img         { transform: scale(1.05); }
-    .service-card .svc-icon      { transition: all .35s ease; }
-    .service-card:hover .svc-icon{ background: #4a7c3f; color: #fff; }
+    /* ── Service Card & Pillar Card — Active State Hover ── */
+    .service-card,
+    .pillar-card {
+      transition: background .35s cubic-bezier(.22,.7,.28,1),
+                  border-color .35s cubic-bezier(.22,.7,.28,1),
+                  box-shadow   .35s cubic-bezier(.22,.7,.28,1),
+                  transform    .35s cubic-bezier(.22,.7,.28,1);
+    }
+    .service-card:hover,
+    .pillar-card:hover {
+      background: #4a7c3f !important;
+      border-color: #4a7c3f !important;
+      transform: scale(1.035);
+      box-shadow: 0 24px 48px rgba(74,124,63,.28) !important;
+    }
+    .service-card .svc-icon { transition: background .35s ease, color .35s ease; }
+    .service-card:hover .svc-icon {
+      background: rgba(255,255,255,.20) !important;
+      color: #fff;
+    }
+    .pillar-card .pillar-icon { transition: background .35s ease, color .35s ease; }
+    .pillar-card:hover .pillar-icon {
+      background: rgba(255,255,255,.20) !important;
+      color: #fff !important;
+    }
+    .service-card h3, .service-card p, .service-card .text-accent,
+    .pillar-card h3,  .pillar-card p  { transition: color .35s ease; }
+    .service-card:hover h3,
+    .pillar-card:hover h3 { color: #fff; }
+    .service-card:hover p,
+    .pillar-card:hover p  { color: rgba(255,255,255,.80); }
+    .service-card:hover .text-accent  { color: rgba(255,255,255,.65); }
+    .service-card:hover a,
+    .service-card:hover a i { color: #fff !important; }
+
+    /* ── Roadmap cards ── */
+    .roadmap-card {
+      transition: background .35s cubic-bezier(.22,.7,.28,1),
+                  border-color .35s cubic-bezier(.22,.7,.28,1),
+                  box-shadow   .35s cubic-bezier(.22,.7,.28,1),
+                  transform    .35s cubic-bezier(.22,.7,.28,1);
+    }
+    .roadmap-card:hover {
+      background: #4a7c3f !important;
+      border-color: #4a7c3f !important;
+      transform: scale(1.035);
+      box-shadow: 0 24px 48px rgba(74,124,63,.28) !important;
+    }
+    .roadmap-card .rd-icon { transition: background .35s ease, color .35s ease; }
+    .roadmap-card:hover .rd-icon { background: rgba(255,255,255,.20) !important; color: #fff !important; }
+    .roadmap-card .rd-year, .roadmap-card .rd-label, .roadmap-card p { transition: color .35s ease; }
+    .roadmap-card:hover .rd-year  { color: #fff; }
+    .roadmap-card:hover .rd-label { color: rgba(255,255,255,.70); }
+    .roadmap-card:hover p         { color: rgba(255,255,255,.80); }
+
+    /* ── Architecture cards ── */
+    .arch-card {
+      transition: background .35s cubic-bezier(.22,.7,.28,1),
+                  border-color .35s cubic-bezier(.22,.7,.28,1),
+                  box-shadow   .35s cubic-bezier(.22,.7,.28,1),
+                  transform    .35s cubic-bezier(.22,.7,.28,1);
+    }
+    .arch-card:hover {
+      background: #4a7c3f !important;
+      border-color: #4a7c3f !important;
+      transform: scale(1.035);
+      box-shadow: 0 24px 48px rgba(74,124,63,.28) !important;
+    }
+    .arch-card .arch-icon { transition: background .35s ease, color .35s ease; }
+    .arch-card:hover .arch-icon { background: rgba(255,255,255,.20) !important; color: #fff !important; }
+    .arch-card .arch-num, .arch-card h4, .arch-card p { transition: color .35s ease; }
+    .arch-card:hover .arch-num { color: rgba(255,255,255,.65); }
+    .arch-card:hover h4         { color: #fff; }
+    .arch-card:hover p          { color: rgba(255,255,255,.80); }
+
+    /* ── Testimonial cards hover ── */
+    .testimonial-card {
+      box-shadow: 0 4px 30px rgba(74,124,63,.10);
+      transition: background .35s cubic-bezier(.22,.7,.28,1),
+                  box-shadow  .35s cubic-bezier(.22,.7,.28,1),
+                  transform   .35s cubic-bezier(.22,.7,.28,1);
+    }
+    .testimonial-card:hover {
+      background: #4a7c3f !important;
+      transform: scale(1.035);
+      box-shadow: 0 24px 48px rgba(74,124,63,.28);
+    }
+    .testimonial-card .stars               { transition: color .35s ease; }
+    .testimonial-card:hover .stars         { color: rgba(255,255,255,.90); }
+    .testimonial-card .t-quote             { transition: color .35s ease; }
+    .testimonial-card:hover .t-quote       { color: rgba(255,255,255,.15); }
+    .testimonial-card p,
+    .testimonial-card .t-name,
+    .testimonial-card .t-role              { transition: color .35s ease; }
+    .testimonial-card:hover p              { color: rgba(255,255,255,.85); }
+    .testimonial-card:hover .t-name        { color: #fff; }
+    .testimonial-card:hover .t-role        { color: rgba(255,255,255,.65); }
     .blog-card img               { transition: transform .45s ease; }
     .blog-card:hover img         { transform: scale(1.07); }
 
@@ -352,28 +447,28 @@
       <p class="text-gray-500 mt-4 max-w-xl mx-auto" data-i18n="sol.lead">MooScan collects, transmits, analyses and alerts — on a closed loop, for every cow, every day.</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
-      <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
+      <div class="service-card group p-8 rounded-2xl border border-gray-100 text-center cursor-pointer bg-cream">
         <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-microchip"></i></div>
         <div class="text-accent font-bold text-xs tracking-widest mb-2">01</div>
         <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="sol.s1.h">IoT Sensors</h3>
         <p class="text-gray-500 text-sm leading-relaxed mb-5" data-i18n="sol.s1.p">Real-time capture of milk, health and behavioural signals directly on and around each cow.</p>
         <a href="#data" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="sol.learn">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
       </div>
-      <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
+      <div class="service-card group p-8 rounded-2xl border border-gray-100 text-center cursor-pointer bg-cream">
         <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-cloud"></i></div>
         <div class="text-accent font-bold text-xs tracking-widest mb-2">02</div>
         <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="sol.s2.h">Secure Cloud</h3>
         <p class="text-gray-500 text-sm leading-relaxed mb-5" data-i18n="sol.s2.p">Encrypted ingestion, storage and processing at scale — accessible from anywhere, anytime.</p>
         <a href="#data" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="sol.learn">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
       </div>
-      <div class="service-card group p-8 rounded-2xl bg-primary text-center cursor-pointer shadow-lg shadow-primary/25">
-        <div class="svc-icon w-16 h-16 rounded-xl bg-white/20 text-white mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-brain"></i></div>
-        <div class="text-white/70 font-bold text-xs tracking-widest mb-2">03</div>
-        <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="sol.s3.h">AI Engine</h3>
-        <p class="text-white/75 text-sm leading-relaxed mb-5" data-i18n="sol.s3.p">Anomaly detection, disease classification and mastitis risk forecasting for every individual cow.</p>
-        <a href="#ai" class="inline-flex items-center gap-2 text-white font-semibold text-sm" data-i18n="sol.learn">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+      <div class="service-card group p-8 rounded-2xl border border-gray-100 text-center cursor-pointer bg-cream">
+        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-brain"></i></div>
+        <div class="text-accent font-bold text-xs tracking-widest mb-2">03</div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="sol.s3.h">AI Engine</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5" data-i18n="sol.s3.p">Anomaly detection, disease classification and mastitis risk forecasting for every individual cow.</p>
+        <a href="#ai" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="sol.learn">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
       </div>
-      <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
+      <div class="service-card group p-8 rounded-2xl border border-gray-100 text-center cursor-pointer bg-cream">
         <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-bell"></i></div>
         <div class="text-accent font-bold text-xs tracking-widest mb-2">04</div>
         <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="sol.s4.h">Alerts &amp; Action</h3>
@@ -560,33 +655,33 @@
       <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight" data-i18n="arch.h2">From Signal on the Ground <em class="not-italic text-primary">to Farmer Decision</em></h2>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-5 gap-5">
-      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20"><i class="fas fa-microchip text-white text-xl"></i></div>
-        <div class="text-accent text-xs font-bold tracking-widest mb-2">01</div>
+      <div class="arch-card bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="arch-icon w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/10"><i class="fas fa-microchip text-xl"></i></div>
+        <div class="arch-num text-accent text-xs font-bold tracking-widest mb-2">01</div>
         <h4 class="font-heading font-bold text-dark text-base mb-1" data-i18n="arch.s1.h">Edge</h4>
         <p class="text-gray-500 text-xs" data-i18n="arch.s1.p">Sensors on &amp; around the cow</p>
       </div>
-      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-primary-dk flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20"><i class="fas fa-wifi text-white text-xl"></i></div>
-        <div class="text-accent text-xs font-bold tracking-widest mb-2">02</div>
+      <div class="arch-card bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="arch-icon w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/10"><i class="fas fa-wifi text-xl"></i></div>
+        <div class="arch-num text-accent text-xs font-bold tracking-widest mb-2">02</div>
         <h4 class="font-heading font-bold text-dark text-base mb-1" data-i18n="arch.s2.h">Gateway</h4>
         <p class="text-gray-500 text-xs">Wi-Fi / LoRa / 4G</p>
       </div>
-      <div class="bg-primary rounded-2xl p-6 text-center shadow-lg shadow-primary/20 hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4 ring-4 ring-white/20"><i class="fas fa-cloud text-white text-xl"></i></div>
-        <div class="text-white/70 text-xs font-bold tracking-widest mb-2">03</div>
-        <h4 class="font-heading font-bold text-white text-base mb-1" data-i18n="arch.s3.h">Cloud</h4>
-        <p class="text-white/70 text-xs" data-i18n="arch.s3.p">Secure storage &amp; processing</p>
+      <div class="arch-card bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="arch-icon w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/10"><i class="fas fa-cloud text-xl"></i></div>
+        <div class="arch-num text-accent text-xs font-bold tracking-widest mb-2">03</div>
+        <h4 class="font-heading font-bold text-dark text-base mb-1" data-i18n="arch.s3.h">Cloud</h4>
+        <p class="text-gray-500 text-xs" data-i18n="arch.s3.p">Secure storage &amp; processing</p>
       </div>
-      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/20"><i class="fas fa-brain text-white text-xl"></i></div>
-        <div class="text-accent text-xs font-bold tracking-widest mb-2">04</div>
+      <div class="arch-card bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="arch-icon w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/10"><i class="fas fa-brain text-xl"></i></div>
+        <div class="arch-num text-accent text-xs font-bold tracking-widest mb-2">04</div>
         <h4 class="font-heading font-bold text-dark text-base mb-1">AI</h4>
         <p class="text-gray-500 text-xs" data-i18n="arch.s4.p">Analytics &amp; predictions</p>
       </div>
-      <div class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="w-16 h-16 rounded-full bg-accent flex items-center justify-center mx-auto mb-4 ring-4 ring-accent/20"><i class="fas fa-mobile-alt text-white text-xl"></i></div>
-        <div class="text-accent text-xs font-bold tracking-widest mb-2">05</div>
+      <div class="arch-card bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="arch-icon w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/10"><i class="fas fa-mobile-alt text-xl"></i></div>
+        <div class="arch-num text-accent text-xs font-bold tracking-widest mb-2">05</div>
         <h4 class="font-heading font-bold text-dark text-base mb-1" data-i18n="arch.s5.h">App</h4>
         <p class="text-gray-500 text-xs" data-i18n="arch.s5.p">Dashboard &amp; alerts</p>
       </div>
@@ -602,23 +697,23 @@
       <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark" data-i18n="pil.h2">The Four Pillars of <em class="not-italic text-primary">MooScan</em></h2>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
-      <div class="group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-cream hover:bg-white text-center">
-        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all"><i class="fas fa-heart"></i></div>
+      <div class="pillar-card group p-8 rounded-2xl border border-gray-100 bg-cream text-center">
+        <div class="pillar-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-heart"></i></div>
         <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="pil.p1.h">Animal Welfare</h3>
         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="pil.p1.p">Healthier cows through continuous, compassionate monitoring. Better welfare means better productivity.</p>
       </div>
-      <div class="group p-8 rounded-2xl bg-primary text-center shadow-lg shadow-primary/25">
-        <div class="w-16 h-16 rounded-xl bg-white/20 text-white mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-award"></i></div>
-        <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="pil.p2.h">Food Quality</h3>
-        <p class="text-white/75 text-sm leading-relaxed" data-i18n="pil.p2.p">Superior milk quality through early intervention leads to premium pricing and fewer rejected batches.</p>
+      <div class="pillar-card group p-8 rounded-2xl border border-gray-100 bg-cream text-center">
+        <div class="pillar-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-award"></i></div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="pil.p2.h">Food Quality</h3>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="pil.p2.p">Superior milk quality through early intervention leads to premium pricing and fewer rejected batches.</p>
       </div>
-      <div class="group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-cream hover:bg-white text-center">
-        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all"><i class="fas fa-globe-africa"></i></div>
+      <div class="pillar-card group p-8 rounded-2xl border border-gray-100 bg-cream text-center">
+        <div class="pillar-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-globe-africa"></i></div>
         <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="pil.p3.h">Food Sovereignty</h3>
         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="pil.p3.p">Supporting local, sustainable farming practices across Morocco and the African continent.</p>
       </div>
-      <div class="group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 bg-cream hover:bg-white text-center">
-        <div class="w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-white transition-all"><i class="fas fa-laptop-code"></i></div>
+      <div class="pillar-card group p-8 rounded-2xl border border-gray-100 bg-cream text-center">
+        <div class="pillar-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl"><i class="fas fa-laptop-code"></i></div>
         <h3 class="font-heading text-xl font-bold text-dark mb-3" data-i18n="pil.p4.h">Digital Transformation</h3>
         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="pil.p4.p">Modernising agricultural operations — bringing data-driven decisions to every farm, large or small.</p>
       </div>
@@ -634,34 +729,34 @@
       <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark" data-i18n="rd.h2">From the Moroccan Farm <em class="not-italic text-primary">to the Continent</em></h2>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-      <div class="bg-primary rounded-2xl p-7 text-white shadow-lg shadow-primary/20 text-center hover:-translate-y-1 transition-transform">
-        <div class="font-heading text-3xl font-bold mb-1" data-i18n="rd.now.title">Now</div>
-        <div class="text-white/70 text-xs uppercase tracking-widest mb-4" data-i18n="rd.now.label">Pilot Phase</div>
-        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-seedling text-white text-base"></i></div>
-        <p class="text-white/80 text-sm leading-relaxed" data-i18n="rd.now.p">Pilot deployment on Moroccan partner farms</p>
+      <div class="roadmap-card bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="rd-year font-heading text-3xl font-bold text-dark mb-1" data-i18n="rd.now.title">Now</div>
+        <div class="rd-label text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.now.label">Pilot Phase</div>
+        <div class="rd-icon w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-seedling text-primary text-base"></i></div>
+        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.now.p">Pilot deployment on Moroccan partner farms</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="font-heading text-3xl font-bold text-dark mb-1">2026</div>
-        <div class="text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2026.label">Predictive Analytics</div>
-        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-chart-bar text-primary text-base"></i></div>
+      <div class="roadmap-card bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="rd-year font-heading text-3xl font-bold text-dark mb-1">2026</div>
+        <div class="rd-label text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2026.label">Predictive Analytics</div>
+        <div class="rd-icon w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-chart-bar text-primary text-base"></i></div>
         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.2026.p">Per-animal risk forecasting at scale</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="font-heading text-3xl font-bold text-dark mb-1">2027</div>
-        <div class="text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2027.label">Mobile App</div>
-        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-mobile-alt text-primary text-base"></i></div>
+      <div class="roadmap-card bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="rd-year font-heading text-3xl font-bold text-dark mb-1">2027</div>
+        <div class="rd-label text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2027.label">Mobile App</div>
+        <div class="rd-icon w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-mobile-alt text-primary text-base"></i></div>
         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.2027.p">iOS &amp; Android with offline mode</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="font-heading text-3xl font-bold text-dark mb-1">2028</div>
-        <div class="text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2028.label">Vet Integration</div>
-        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-stethoscope text-primary text-base"></i></div>
+      <div class="roadmap-card bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="rd-year font-heading text-3xl font-bold text-dark mb-1">2028</div>
+        <div class="rd-label text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2028.label">Vet Integration</div>
+        <div class="rd-icon w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-stethoscope text-primary text-base"></i></div>
         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.2028.p">Farm ↔ vet decision link for faster care</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm hover:-translate-y-1 transition-transform">
-        <div class="font-heading text-3xl font-bold text-dark mb-1">2029<span class="text-primary text-xl">+</span></div>
-        <div class="text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2029.label">Continental Scale</div>
-        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-globe-africa text-primary text-base"></i></div>
+      <div class="roadmap-card bg-white rounded-2xl p-7 text-center border border-gray-100 shadow-sm cursor-pointer">
+        <div class="rd-year font-heading text-3xl font-bold text-dark mb-1">2029<span class="text-primary text-xl">+</span></div>
+        <div class="rd-label text-primary text-xs uppercase tracking-widest mb-4" data-i18n="rd.2029.label">Continental Scale</div>
+        <div class="rd-icon w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-globe-africa text-primary text-base"></i></div>
         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="rd.2029.p">Expand to other livestock across Africa</p>
       </div>
     </div>
@@ -676,36 +771,36 @@
       <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark" data-i18n="test.h2">What Farmers <em class="not-italic text-primary">Are Saying</em></h2>
     </div>
     <div class="grid md:grid-cols-3 gap-7">
-      <div class="testimonial-card bg-cream p-8 rounded-2xl relative">
-        <div class="text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
+      <div class="testimonial-card bg-cream p-8 rounded-2xl relative cursor-pointer">
+        <div class="t-quote text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
         <div class="stars flex gap-1 mb-4"><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i></div>
         <p class="text-gray-600 leading-relaxed mb-7 text-sm" data-i18n="test.q1">"MooScan detected an early-stage mastitis in one of our cows two days before we would have noticed manually. That early alert alone saved us from a contaminated batch worth thousands of dirhams."</p>
         <div class="flex items-center gap-4">
           <div>
-            <div class="font-heading font-bold text-dark text-base">Hassan Benali</div>
-            <div class="text-primary text-xs font-medium" data-i18n="test.r1">Dairy Farm Owner, Khouribga</div>
+            <div class="t-name font-heading font-bold text-dark text-base">Hassan Benali</div>
+            <div class="t-role text-primary text-xs font-medium" data-i18n="test.r1">Dairy Farm Owner, Khouribga</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card bg-primary p-8 rounded-2xl relative shadow-xl shadow-primary/30">
-        <div class="text-6xl text-white/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
-        <div class="stars flex gap-1 mb-4"><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i></div>
-        <p class="text-white/85 leading-relaxed mb-7 text-sm" data-i18n="test.q2">"We manage 80 cows and manually tracking health indicators was an ongoing nightmare. MooScan gave us a dashboard that replaces what would have been two extra farmhands. It paid for itself in the first month."</p>
+      <div class="testimonial-card bg-cream p-8 rounded-2xl relative cursor-pointer">
+        <div class="t-quote text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
+        <div class="stars flex gap-1 mb-4"><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i></div>
+        <p class="text-gray-600 leading-relaxed mb-7 text-sm" data-i18n="test.q2">"We manage 80 cows and manually tracking health indicators was an ongoing nightmare. MooScan gave us a dashboard that replaces what would have been two extra farmhands. It paid for itself in the first month."</p>
         <div class="flex items-center gap-4">
           <div>
-            <div class="font-heading font-bold text-white text-base">Fatima Zahra El Idrissi</div>
-            <div class="text-white/60 text-xs font-medium" data-i18n="test.r2">Farm Manager, Meknès Region</div>
+            <div class="t-name font-heading font-bold text-dark text-base">Fatima Zahra El Idrissi</div>
+            <div class="t-role text-primary text-xs font-medium" data-i18n="test.r2">Farm Manager, Meknès Region</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card bg-cream p-8 rounded-2xl relative">
-        <div class="text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
+      <div class="testimonial-card bg-cream p-8 rounded-2xl relative cursor-pointer">
+        <div class="t-quote text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
         <div class="stars flex gap-1 mb-4"><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="far fa-star text-sm"></i></div>
         <p class="text-gray-600 leading-relaxed mb-7 text-sm" data-i18n="test.q3">"As a vet, MooScan has transformed how I support my farm clients. I can review cow data remotely and advise before making a farm visit — faster care and fewer emergency call-outs."</p>
         <div class="flex items-center gap-4">
           <div>
-            <div class="font-heading font-bold text-dark text-base">Dr. Youssef Karimi</div>
-            <div class="text-primary text-xs font-medium" data-i18n="test.r3">Livestock Veterinarian, Safi</div>
+            <div class="t-name font-heading font-bold text-dark text-base">Dr. Youssef Karimi</div>
+            <div class="t-role text-primary text-xs font-medium" data-i18n="test.r3">Livestock Veterinarian, Safi</div>
           </div>
         </div>
       </div>
