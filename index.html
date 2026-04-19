@@ -45,7 +45,7 @@
     /* ── Hero ── */
     .hero-section {
       background: linear-gradient(to right, rgba(15,25,15,.85) 55%, rgba(15,25,15,.45) 100%),
-                  url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=1920&q=85') center/cover no-repeat;
+                  url('images/hero.png') center/cover no-repeat;
       min-height: 100vh;
     }
 
@@ -113,6 +113,26 @@
     @keyframes scanLine {
       0%,100%{top:5%;opacity:0} 10%{opacity:1} 50%{top:95%} 90%{opacity:1}
     }
+
+    /* ── Project intro: staggered fade-in-up ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; animation: fadeInUp .72s cubic-bezier(.22,.7,.28,1) forwards; }
+    .reveal-d1 { animation-delay: .10s; }
+    .reveal-d2 { animation-delay: .28s; }
+    .reveal-d3 { animation-delay: .46s; }
+
+    /* ── Keyword pulse on hover ── */
+    .kw {
+      color: #4a7c3f; font-weight: 600; display: inline-block;
+      transition: color .25s ease, transform .25s ease;
+      cursor: default;
+    }
+    .kw:hover { color: #2e5225; transform: scale(1.04) translateY(-1px); }
+    .kw-accent { color: #c8a84b; }
+    .kw-accent:hover { color: #a8882f; }
 
     /* ── Roadmap connector ── */
     .roadmap-step:not(:last-child)::after {
@@ -292,6 +312,33 @@
     <span class="text-accent font-body text-base px-3">✦</span>
     <span class="text-white font-body text-sm tracking-widest uppercase px-8">Better Milk</span>
     <span class="text-accent font-body text-base px-3">✦</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PROJECT INTRO BANNER (animated)
+══════════════════════════════════════════ -->
+<div class="bg-white border-b border-gray-100 py-16">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+
+    <!-- Label -->
+    <div class="reveal reveal-d1 inline-flex items-center gap-2 mb-5">
+      <span class="block w-8 h-px bg-primary"></span>
+      <span class="sec-label tracking-widest">About the Project</span>
+      <span class="block w-8 h-px bg-primary"></span>
+    </div>
+
+    <!-- Main sentence — staggered word-by-phrase reveal -->
+    <p class="reveal reveal-d2 font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-dark leading-snug mb-4">
+      MooScan is a project by&nbsp;<span class="kw">YaneCode Digital</span>,<br class="hidden md:block" />
+      presented at&nbsp;<span class="kw kw-accent">SIAM&nbsp;2026</span>.
+    </p>
+
+    <p class="reveal reveal-d3 text-gray-500 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+      A smart&nbsp;<span class="kw">IoT&nbsp;&amp;&nbsp;AI</span>&nbsp;monitoring system designed
+      specifically for dairy cow management — bringing real-time intelligence to every farm.
+    </p>
+
   </div>
 </div>
 
