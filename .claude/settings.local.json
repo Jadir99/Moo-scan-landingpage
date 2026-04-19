@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:html.vikinglab.agency)",
+      "Bash(claude plugin *)"
+    ]
+  }
+}

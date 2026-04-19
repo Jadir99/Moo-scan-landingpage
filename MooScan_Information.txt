@@ -1,0 +1,234 @@
+================================================================================
+                    MOOSCAN - LANDING PAGE INFORMATION
+================================================================================
+
+PROJECT TITLE: MooScan — Smart IoT & AI monitoring system for dairy cows
+ORGANIZATION: YaneCode Digital
+EVENT: SIAM 2026 - Meknes, Morocco
+LOCATION: Safi, Morocco
+
+================================================================================
+PROJECT DESCRIPTION
+================================================================================
+
+MooScan is a project by YaneCode Digital, presented at SIAM 2026.
+A smart IoT & AI monitoring system designed specifically for dairy cow management.
+
+================================================================================
+THE PROBLEM
+================================================================================
+
+Every day, silent losses on dairy farms.
+
+Without continuous monitoring, the earliest signs of disease go unnoticed — 
+until milk quality and profitability both suffer.
+
+Key Issues:
+1. LATE MASTITIS
+   - Often spotted too late — milk quality has already dropped.
+
+2. MANUAL MONITORING
+   - Watching every cow 24/7 is impossible; faint signals get missed.
+
+3. REJECTED MILK
+   - Contaminated batches mean lost revenue and lost trust.
+
+4. NO DATA
+   - Without digital data, decisions rely on intuition alone.
+
+================================================================================
+THE SOLUTION
+================================================================================
+
+One integrated system, from sensor to decision.
+
+MooScan collects, transmits, analyzes and alerts — on a closed loop, 
+for every cow, every day.
+
+THE PIPELINE (4-Step Process):
+
+01. IoT SENSORS
+    - Real-time capture of milk, health and behavioral signals
+
+02. SECURE CLOUD
+    - Encrypted ingestion, storage and processing at scale
+
+03. AI ENGINE
+    - Anomaly detection, classification and risk forecasting
+
+04. ALERTS & ACTION
+    - Clear recommendations delivered to the farmer's dashboard
+
+================================================================================
+THE DATA
+================================================================================
+
+Three data worlds — one view of the cow.
+
+Fusing milk, health and behavioral streams reveals what no single signal can.
+
+MILK DATA:
+- Yield (L/day)
+- Conductivity
+- Temperature
+- Flow rate
+- Somatic cell proxy
+
+HEALTH DATA:
+- Body temperature
+- Heart & respiration
+- Rumen activity
+- Udder condition
+- Disease markers
+
+BEHAVIORAL DATA:
+- Rumination time
+- Activity / steps
+- Standing vs lying
+- Feeding & drinking
+- Heat signs
+
+================================================================================
+ARCHITECTURE
+================================================================================
+
+From signal on the ground, to farmer decision.
+
+01. EDGE
+    Sensors on/around the cow
+
+02. GATEWAY
+    Wi-Fi / LoRa / 4G
+
+03. CLOUD
+    Secure storage & processing
+
+04. AI
+    Analytics & predictions
+
+05. APP
+    Dashboard & alerts
+
+================================================================================
+ARTIFICIAL INTELLIGENCE
+================================================================================
+
+AI turns signals into insight.
+
+Every cow gets her own baseline. MooScan flags what deviates — before it's too late.
+
+AI CAPABILITIES:
+
+1. ANOMALY DETECTION
+   - Spot abnormal cross-signal patterns
+
+2. CLASSIFICATION
+   - Healthy · suspicious · intervene
+
+3. PREDICTION
+   - Forecast mastitis risk windows
+
+4. EARLY WARNING
+   - Before clinical symptoms appear
+
+COW STATUS INDICATORS:
+- HEALTHY (Green indicator)
+- SUSPICIOUS (Yellow indicator)
+- INTERVENE (Red indicator)
+
+================================================================================
+STRATEGIC PILLARS
+================================================================================
+
+The 4 pillars driving MooScan:
+
+1. ANIMAL WELFARE
+   - Healthier cows, better productivity
+
+2. FOOD QUALITY
+   - Superior milk quality, premium pricing
+
+3. FOOD SOVEREIGNTY
+   - Local, sustainable farming practices
+
+4. DIGITAL TRANSFORMATION
+   - Modernizing agricultural operations
+
+================================================================================
+ROADMAP
+================================================================================
+
+De la ferme marocaine au continent.
+From the Moroccan farm to the continent.
+
+NOW
+- PILOT DEPLOYMENT
+  Moroccan partner farms
+
+2026
+- PREDICTIVE ANALYTICS
+  Per-animal risk forecasting
+
+2027
+- MOBILE APP
+  iOS & Android, offline mode
+
+2028
+- VET INTEGRATION
+  Farm ↔ vet decision link
+
+2029+
+- CONTINENTAL SCALE
+  Other livestock · Africa
+
+================================================================================
+CALL TO ACTION
+================================================================================
+
+Smarter monitoring, healthier cows, better milk.
+
+Meet the YaneCode Digital team at SIAM 2026 — live demo on tablet 
+and conversations with our engineers.
+
+CONTACT INFORMATION:
+- Email: contact@yanecode.com
+- Website: www.yanecode.com
+- Location: Safi, Morocco
+- Event: YaneCode Booth — SIAM Meknes
+
+================================================================================
+KEY MONITORED SIGNALS
+================================================================================
+
+The system continuously tracks:
+- Temperature
+- Activity
+- Conductivity
+- Behavior
+- Heat signs
+- Health indicators
+
+================================================================================
+NAVIGATION SECTIONS (Website)
+================================================================================
+
+1. Context (The Problem)
+2. Solution
+3. Data
+4. AI
+5. Roadmap
+
+================================================================================
+COMPANY DETAILS
+================================================================================
+
+Company: YaneCode Digital
+Project: MooScan
+Status: Pilot Phase (launching 2026)
+Target Market: Moroccan and African dairy farms
+Event Presence: SIAM 2026 in Meknes
+Copyright: © 2026 YaneCode Digital - All rights reserved
+
+================================================================================
+END OF DOCUMENT
+================================================================================

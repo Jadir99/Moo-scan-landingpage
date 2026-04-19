@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orgaanic – Naturally Raised Cattle Farm</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:       '#4a7c3f',
+            'primary-dk':  '#2e5225',
+            'primary-lt':  '#6aab58',
+            accent:        '#c8a84b',
+            cream:         '#f8f5ef',
+            dark:          '#1a2a1a',
+          },
+          fontFamily: {
+            heading: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['Jost', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    *, body { font-family: 'Jost', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* ── Hero ── */
+    .hero-section {
+      background: linear-gradient(to right, rgba(15,25,15,.80) 55%, rgba(15,25,15,.35) 100%),
+                  url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1920&q=85') center/cover no-repeat;
+      min-height: 100vh;
+    }
+
+    /* ── Marquee strip ── */
+    .marquee-track { display: flex; width: max-content; animation: marqueeScroll 28s linear infinite; }
+    @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── Hover states ── */
+    .gallery-card .overlay       { opacity: 0; transition: opacity .35s ease; }
+    .gallery-card:hover .overlay { opacity: 1; }
+
+    .team-card .socials       { opacity: 0; transform: translateY(12px); transition: all .35s ease; }
+    .team-card:hover .socials { opacity: 1; transform: translateY(0); }
+    .team-card:hover img      { transform: scale(1.05); }
+
+    .service-card .svc-icon      { transition: all .35s ease; }
+    .service-card:hover .svc-icon { background: #4a7c3f; color: #fff; }
+
+    .blog-card img { transition: transform .45s ease; }
+    .blog-card:hover img { transform: scale(1.07); }
+
+    /* ── Buttons ── */
+    .btn-green  { background:#4a7c3f; color:#fff; transition: background .3s; }
+    .btn-green:hover { background:#2e5225; }
+    .btn-outline{ border:2px solid #4a7c3f; color:#4a7c3f; transition: all .3s; }
+    .btn-outline:hover { background:#4a7c3f; color:#fff; }
+
+    /* ── Section label ── */
+    .sec-label { color:#4a7c3f; letter-spacing:.15em; text-transform:uppercase; font-size:.78rem; font-weight:600; }
+
+    /* ── Divider leaf ── */
+    .leaf-divider { display:inline-flex; align-items:center; gap:8px; }
+    .leaf-divider::before, .leaf-divider::after { content:''; display:block; height:2px; width:40px; background:#4a7c3f; }
+
+    /* ── Stat counter ── */
+    .stat-num { font-family:'Playfair Display',serif; line-height:1; }
+
+    /* ── Testimonial quote card ── */
+    .testimonial-card { box-shadow: 0 4px 30px rgba(74,124,63,.10); }
+    .testimonial-card .stars { color:#c8a84b; }
+
+    /* ── Footer ── */
+    footer a:hover { color:#6aab58; }
+
+    /* ── Nav dropdown ── */
+    .nav-item .dropdown { display:none; position:absolute; top:100%; left:0; min-width:180px; background:#fff; box-shadow:0 8px 30px rgba(0,0,0,.12); border-top:3px solid #4a7c3f; z-index:999; }
+    .nav-item:hover .dropdown { display:block; }
+
+    /* ── Scroll bar ── */
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-thumb { background:#4a7c3f; border-radius:4px; }
+  </style>
+</head>
+<body class="bg-white text-gray-700 overflow-x-hidden">
+
+<!-- ══════════════════════════════════════════
+     TOP BAR
+══════════════════════════════════════════ -->
+<div class="bg-dark text-gray-300 text-sm py-2.5 hidden md:block">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="mailto:cattlefarm@orgaanic.com" class="flex items-center gap-2 hover:text-primary-lt transition-colors">
+        <i class="fas fa-envelope text-primary text-xs"></i> cattlefarm@orgaanic.com
+      </a>
+      <a href="tel:+8801712345678" class="flex items-center gap-2 hover:text-primary-lt transition-colors">
+        <i class="fas fa-phone text-primary text-xs"></i> +880 1712 345 678
+      </a>
+      <span class="flex items-center gap-2">
+        <i class="fas fa-map-marker-alt text-primary text-xs"></i> Charabari, Shingra, Natore, Bangladesh
+      </span>
+    </div>
+    <div class="flex items-center gap-5">
+      <span class="flex items-center gap-2">
+        <i class="fas fa-clock text-primary text-xs"></i> Mon – Sat: 8:00 am – 6:00 pm
+      </span>
+      <div class="flex items-center gap-3 border-l border-gray-600 pl-5">
+        <a href="#" class="hover:text-primary-lt transition-colors"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-primary-lt transition-colors"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-primary-lt transition-colors"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-primary-lt transition-colors"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════ -->
+<header id="navbar" class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 flex-shrink-0">
+      <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+        <i class="fas fa-leaf text-white text-base"></i>
+      </div>
+      <span class="font-heading text-2xl font-bold text-dark leading-none">Org<em class="not-italic text-primary">aanic</em></span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-8">
+      <div class="nav-item relative">
+        <a href="#" class="flex items-center gap-1 text-dark font-medium hover:text-primary transition-colors py-2">Home <i class="fas fa-chevron-down text-xs mt-0.5"></i></a>
+        <div class="dropdown py-2 rounded-b">
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Home Style 1</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Home Style 2</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Home Style 3</a>
+        </div>
+      </div>
+      <div class="nav-item relative">
+        <a href="#" class="flex items-center gap-1 text-dark font-medium hover:text-primary transition-colors py-2">Pages <i class="fas fa-chevron-down text-xs mt-0.5"></i></a>
+        <div class="dropdown py-2 rounded-b">
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">About Us</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Our Team</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Testimonials</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">404 Page</a>
+        </div>
+      </div>
+      <div class="nav-item relative">
+        <a href="#" class="flex items-center gap-1 text-dark font-medium hover:text-primary transition-colors py-2">Services <i class="fas fa-chevron-down text-xs mt-0.5"></i></a>
+        <div class="dropdown py-2 rounded-b">
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Services Left</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Services Right</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Service Single</a>
+        </div>
+      </div>
+      <div class="nav-item relative">
+        <a href="#" class="flex items-center gap-1 text-dark font-medium hover:text-primary transition-colors py-2">Projects <i class="fas fa-chevron-down text-xs mt-0.5"></i></a>
+        <div class="dropdown py-2 rounded-b">
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Projects Left</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Projects Right</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Project Single</a>
+        </div>
+      </div>
+      <div class="nav-item relative">
+        <a href="#" class="flex items-center gap-1 text-dark font-medium hover:text-primary transition-colors py-2">Blog <i class="fas fa-chevron-down text-xs mt-0.5"></i></a>
+        <div class="dropdown py-2 rounded-b">
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Blog Left</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Blog Right</a>
+          <a href="#" class="block px-5 py-2 text-sm hover:bg-cream hover:text-primary">Blog Single</a>
+        </div>
+      </div>
+      <a href="#" class="text-dark font-medium hover:text-primary transition-colors">Contact</a>
+    </nav>
+
+    <!-- Right Controls -->
+    <div class="flex items-center gap-4">
+      <button class="hidden lg:flex flex-col gap-1 p-2" aria-label="search">
+        <i class="fas fa-search text-dark hover:text-primary transition-colors text-base"></i>
+      </button>
+      <a href="#" class="relative">
+        <i class="fas fa-shopping-cart text-dark hover:text-primary transition-colors text-base"></i>
+        <span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
+      </a>
+      <a href="#" class="btn-green hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-semibold">
+        Get a Quote <i class="fas fa-arrow-right text-xs"></i>
+      </a>
+      <!-- Hamburger -->
+      <button id="menuToggle" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="menu">
+        <span class="w-6 h-0.5 bg-dark block"></span>
+        <span class="w-6 h-0.5 bg-dark block"></span>
+        <span class="w-4 h-0.5 bg-dark block"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-100 bg-white px-6 pb-6 pt-4 space-y-1">
+    <a href="#" class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Home</a>
+    <a href="#" class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Pages</a>
+    <a href="#" class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Services</a>
+    <a href="#" class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Projects</a>
+    <a href="#" class="block py-2.5 text-dark font-medium hover:text-primary border-b border-gray-100">Blog</a>
+    <a href="#" class="block py-2.5 text-dark font-medium hover:text-primary">Contact</a>
+    <a href="#" class="mt-4 btn-green inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-semibold">Get a Quote <i class="fas fa-arrow-right text-xs"></i></a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════════ -->
+<section class="hero-section relative flex items-center">
+  <!-- Floating badges -->
+  <div class="absolute right-12 top-1/3 hidden xl:flex flex-col gap-4">
+    <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-4 text-center text-white w-28">
+      <div class="font-heading text-2xl font-bold">20+</div>
+      <div class="text-xs mt-1 text-gray-200">Years of Experience</div>
+    </div>
+    <div class="bg-primary rounded-xl p-4 text-center text-white w-28">
+      <div class="font-heading text-2xl font-bold">2850+</div>
+      <div class="text-xs mt-1">Happy Clients</div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-28 md:py-40 w-full">
+    <div class="max-w-2xl">
+      <div class="leaf-divider sec-label mb-5">Naturally Raised</div>
+      <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-[1.12] mb-7">
+        Fresh Milk <br />and <em class="not-italic text-accent">Meats</em> <br />From Our Farm
+      </h1>
+      <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-lg">
+        At Orgaanic, we believe great food begins with honest farming. Nestled in open pastures and guided by nature, our farm is built on sustainability, compassion, and transparency.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#" class="btn-green inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base">
+          Explore Products <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#" class="inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base border-2 border-white/60 text-white hover:bg-white hover:text-dark transition-all">
+          Watch Our Story <i class="fas fa-play text-xs"></i>
+        </a>
+      </div>
+      <!-- Scroll down hint -->
+      <div class="mt-16 flex items-center gap-3 text-gray-400 text-sm">
+        <div class="w-px h-10 bg-gray-500"></div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom hero image bar -->
+  <div class="absolute bottom-0 left-0 right-0 hidden lg:grid grid-cols-4">
+    <div class="relative h-36 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400&q=80" alt="Farm cattle" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+    </div>
+    <div class="relative h-36 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=400&q=80" alt="Fresh milk" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+    </div>
+    <div class="relative h-36 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=400&q=80" alt="Green pasture" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+    </div>
+    <div class="relative h-36 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=400&q=80" alt="Organic products" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MARQUEE TEXT STRIP
+══════════════════════════════════════════ -->
+<div class="bg-primary py-4 overflow-hidden mt-0 lg:mt-36">
+  <div class="marquee-track">
+    <!-- Duplicated for seamless loop -->
+    <span class="text-white font-heading italic text-xl px-8">Fresh Milk and Meats</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-body text-sm tracking-widest uppercase px-8">Naturally Raised</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8">Orgaanic Always</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-body text-sm tracking-widest uppercase px-8">100% Grass-Fed</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8">Farm to Table</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-body text-sm tracking-widest uppercase px-8">Chemical Free</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <!-- Duplicate set for seamless scroll -->
+    <span class="text-white font-heading italic text-xl px-8">Fresh Milk and Meats</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-body text-sm tracking-widest uppercase px-8">Naturally Raised</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8">Orgaanic Always</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-body text-sm tracking-widest uppercase px-8">100% Grass-Fed</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-heading italic text-xl px-8">Farm to Table</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+    <span class="text-white font-body text-sm tracking-widest uppercase px-8">Chemical Free</span>
+    <span class="text-accent font-body text-base px-3">✦</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT SECTION
+══════════════════════════════════════════ -->
+<section class="py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Images collage -->
+      <div class="relative">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-2xl overflow-hidden h-72">
+            <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&q=80" alt="Cattle farm" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="rounded-2xl overflow-hidden h-72 mt-8">
+            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&q=80" alt="Open pasture" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+        </div>
+        <!-- Floating badge -->
+        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-dark text-white px-7 py-4 rounded-xl flex items-center gap-4 shadow-xl">
+          <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-award text-white text-lg"></i>
+          </div>
+          <div>
+            <div class="font-heading text-2xl font-bold">20+ Years</div>
+            <div class="text-gray-400 text-xs">Trusted Farm Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="lg:pl-8">
+        <div class="leaf-divider sec-label mb-5">About Our Cattle Farm</div>
+        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight mb-6">
+          Raising Cattle With Care, <em class="not-italic text-primary">The Orgaanic Way</em>
+        </h2>
+        <p class="text-gray-500 text-base leading-relaxed mb-5">
+          At Orgaanic, we believe that great food begins with honest farming. Nestled in open pastures and guided by nature, our farm is built on values of sustainability, compassion, and transparency.
+        </p>
+        <p class="text-gray-500 text-base leading-relaxed mb-8">
+          We're committed to delivering fresh, chemical-free dairy and meat products straight from our pasture to your plate. Every animal is raised with care and every product is crafted with integrity.
+        </p>
+
+        <!-- Feature list -->
+        <ul class="space-y-3 mb-10">
+          <li class="flex items-center gap-3 text-dark font-medium">
+            <span class="w-5 h-5 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-check text-primary text-xs"></i>
+            </span>100% Grass-Fed, Chemical-Free Animals
+          </li>
+          <li class="flex items-center gap-3 text-dark font-medium">
+            <span class="w-5 h-5 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-check text-primary text-xs"></i>
+            </span>Direct Farm-to-Table Delivery
+          </li>
+          <li class="flex items-center gap-3 text-dark font-medium">
+            <span class="w-5 h-5 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-check text-primary text-xs"></i>
+            </span>Certified Organic & Sustainable Practices
+          </li>
+        </ul>
+
+        <div class="flex flex-wrap items-center gap-5">
+          <a href="#" class="btn-green inline-flex items-center gap-2 px-7 py-3.5 rounded font-semibold">
+            Discover More <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+          <a href="#" class="flex items-center gap-3 group">
+            <div class="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all text-primary">
+              <i class="fas fa-play text-xs"></i>
+            </div>
+            <span class="text-dark font-medium">Watch Video</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SERVICES SECTION
+══════════════════════════════════════════ -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="leaf-divider sec-label mb-4 justify-center">What We Offer</div>
+      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark leading-tight">
+        Our Premium <em class="not-italic text-primary">Farm Services</em>
+      </h2>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+
+      <!-- Card 1 -->
+      <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
+        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl">
+          <i class="fas fa-seedling"></i>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3">Pasture Management Services</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          Expert management of grazing lands ensuring healthy, lush pastures for optimal cattle nutrition year-round.
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
+          Read More <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
+        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl">
+          <i class="fas fa-cow"></i>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3">Cattle Sales &amp; Livestock Supply</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          Premium quality livestock bred on our farm, available for sale to farmers, butchers, and direct consumers.
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
+          Read More <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Card 3 (featured) -->
+      <div class="service-card group p-8 rounded-2xl bg-primary text-center cursor-pointer shadow-lg shadow-primary/25">
+        <div class="svc-icon w-16 h-16 rounded-xl bg-white/20 text-white mx-auto mb-6 flex items-center justify-center text-2xl">
+          <i class="fas fa-wheat-awn"></i>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-white mb-3">Natural Feed Production &amp; Supply</h3>
+        <p class="text-white/75 text-sm leading-relaxed mb-5">
+          We produce and supply natural, additive-free cattle feed blended to support healthy growth and productivity.
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 text-white font-semibold text-sm">
+          Read More <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-400 text-center cursor-pointer bg-cream hover:bg-white">
+        <div class="svc-icon w-16 h-16 rounded-xl bg-primary/10 text-primary mx-auto mb-6 flex items-center justify-center text-2xl">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-3">Grass-Fed Cattle Management</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          Specialised grass-fed programmes ensuring cattle develop naturally without hormones or artificial supplements.
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
+          Read More <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     GALLERY + WHY US (Two-column split)
+══════════════════════════════════════════ -->
+<section class="py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-14 items-start">
+
+      <!-- Gallery -->
+      <div>
+        <div class="leaf-divider sec-label mb-5">Farm Gallery</div>
+        <h2 class="font-heading text-4xl font-bold text-dark mb-10">
+          A Glimpse of <em class="not-italic text-primary">Life on the Farm</em>
+        </h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="gallery-card relative rounded-xl overflow-hidden h-52 cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=500&q=80" alt="Cattle in field" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+            <div class="overlay absolute inset-0 bg-primary/70 flex items-center justify-center">
+              <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <i class="fas fa-plus text-primary"></i>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-card relative rounded-xl overflow-hidden h-52 cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=500&q=80" alt="Herd grazing" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+            <div class="overlay absolute inset-0 bg-primary/70 flex items-center justify-center">
+              <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <i class="fas fa-plus text-primary"></i>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-card relative rounded-xl overflow-hidden h-52 cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=500&q=80" alt="Farm produce" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+            <div class="overlay absolute inset-0 bg-primary/70 flex items-center justify-center">
+              <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <i class="fas fa-plus text-primary"></i>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-card relative rounded-xl overflow-hidden h-52 cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=500&q=80" alt="Morning milking" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+            <div class="overlay absolute inset-0 bg-primary/70 flex items-center justify-center">
+              <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <i class="fas fa-plus text-primary"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Farm / Features -->
+      <div class="lg:pt-16">
+        <div class="leaf-divider sec-label mb-5">Why Farm</div>
+        <h2 class="font-heading text-4xl font-bold text-dark mb-4">
+          Why Choose <em class="not-italic text-primary">Orgaanic Farm?</em>
+        </h2>
+        <p class="text-gray-500 leading-relaxed mb-10">
+          We go beyond ordinary farming standards. Our commitment to sustainable, ethical practices ensures you receive only the finest products while supporting a healthier planet.
+        </p>
+
+        <div class="space-y-6">
+          <div class="flex gap-5 items-start group">
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
+              <i class="fas fa-recycle text-primary group-hover:text-white transition-colors text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-heading text-lg font-bold text-dark mb-1">Sustainable Farming Practices</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">Our eco-conscious approach minimises waste and promotes biodiversity across every acre of our land.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-5 items-start group">
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
+              <i class="fas fa-heart text-primary group-hover:text-white transition-colors text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-heading text-lg font-bold text-dark mb-1">Animal Welfare First</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">Every animal on our farm roams freely and lives stress-free, producing healthier, better-tasting food.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-5 items-start group">
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
+              <i class="fas fa-flask text-primary group-hover:text-white transition-colors text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-heading text-lg font-bold text-dark mb-1">Zero Chemicals, Zero Compromise</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">We never use synthetic hormones, antibiotics, or pesticides — ever. Purity is non-negotiable at Orgaanic.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-5 items-start group">
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
+              <i class="fas fa-truck text-primary group-hover:text-white transition-colors text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-heading text-lg font-bold text-dark mb-1">Freshness Guaranteed on Delivery</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">Products are packed and dispatched daily to ensure maximum freshness from our pasture to your door.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     STATS COUNTER SECTION
+══════════════════════════════════════════ -->
+<section class="bg-dark py-20 relative overflow-hidden">
+  <!-- Background leaf pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <i class="fas fa-leaf text-white text-[20rem] absolute -top-20 -right-20 rotate-45"></i>
+    <i class="fas fa-leaf text-white text-[14rem] absolute bottom-0 left-10 -rotate-12"></i>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="stat-num text-5xl font-bold text-white mb-2">1200<span class="text-primary">+</span></div>
+        <div class="w-10 h-0.5 bg-primary mx-auto mb-3"></div>
+        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase">Products Available</div>
+      </div>
+      <div>
+        <div class="stat-num text-5xl font-bold text-white mb-2">20<span class="text-primary">+</span></div>
+        <div class="w-10 h-0.5 bg-primary mx-auto mb-3"></div>
+        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num text-5xl font-bold text-white mb-2">2850<span class="text-primary">+</span></div>
+        <div class="w-10 h-0.5 bg-primary mx-auto mb-3"></div>
+        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase">Satisfied Clients</div>
+      </div>
+      <div>
+        <div class="stat-num text-5xl font-bold text-white mb-2">30<span class="text-primary">+</span></div>
+        <div class="w-10 h-0.5 bg-primary mx-auto mb-3"></div>
+        <div class="text-gray-400 font-medium tracking-wide text-sm uppercase">Team Members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TEAM SECTION
+══════════════════════════════════════════ -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <div class="leaf-divider sec-label mb-4 justify-center">Our Team</div>
+      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark">
+        The People Behind <em class="not-italic text-primary">Orgaanic</em>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Member 1 -->
+      <div class="team-card text-center group">
+        <div class="relative overflow-hidden rounded-2xl mb-6">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Farm Director" class="w-full h-80 object-cover transition-transform duration-500" />
+          <div class="socials absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-twitter text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-instagram text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-linkedin-in text-xs"></i></a>
+          </div>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-1">James Hargrove</h3>
+        <span class="text-primary text-sm font-medium">Farm Director & Founder</span>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="team-card text-center group">
+        <div class="relative overflow-hidden rounded-2xl mb-6">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" alt="Livestock Manager" class="w-full h-80 object-cover transition-transform duration-500" />
+          <div class="socials absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-twitter text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-instagram text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-linkedin-in text-xs"></i></a>
+          </div>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-1">Sarah Mitchell</h3>
+        <span class="text-primary text-sm font-medium">Head of Livestock Management</span>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="team-card text-center group">
+        <div class="relative overflow-hidden rounded-2xl mb-6">
+          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&q=80" alt="Organic Specialist" class="w-full h-80 object-cover transition-transform duration-500" />
+          <div class="socials absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-twitter text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-instagram text-xs"></i></a>
+            <a href="#" class="w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary-dk transition-colors"><i class="fab fa-linkedin-in text-xs"></i></a>
+          </div>
+        </div>
+        <h3 class="font-heading text-xl font-bold text-dark mb-1">Daniel Osei</h3>
+        <span class="text-primary text-sm font-medium">Organic Farming Specialist</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════ -->
+<section class="py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <div class="leaf-divider sec-label mb-4 justify-center">Testimonials</div>
+      <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark">
+        What Our <em class="not-italic text-primary">Clients Say</em>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-7">
+
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card bg-white p-8 rounded-2xl relative">
+        <div class="text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
+        <div class="stars flex gap-1 mb-4">
+          <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+        </div>
+        <p class="text-gray-600 leading-relaxed mb-7 text-sm">
+          "Orgaanic isn't just where I get milk and meat — it's where I find peace of mind. Knowing that everything is raised naturally and delivered fresh makes all the difference for my family."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Client" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <div class="font-heading font-bold text-dark text-base">Amanda Reynolds</div>
+            <div class="text-primary text-xs font-medium">Loyal Customer, 6 yrs</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 (featured) -->
+      <div class="testimonial-card bg-primary p-8 rounded-2xl relative shadow-xl shadow-primary/30">
+        <div class="text-6xl text-white/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
+        <div class="stars flex gap-1 mb-4">
+          <i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i><i class="fas fa-star text-sm text-white"></i>
+        </div>
+        <p class="text-white/85 leading-relaxed mb-7 text-sm">
+          "We've been sourcing beef from Orgaanic for our restaurant for three years. The quality is unmatched — our chefs and customers notice the difference every single time."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Client" class="w-12 h-12 rounded-full object-cover ring-2 ring-white/30" />
+          <div>
+            <div class="font-heading font-bold text-white text-base">Marcus Chen</div>
+            <div class="text-white/60 text-xs font-medium">Executive Chef, The Green Table</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card bg-white p-8 rounded-2xl relative">
+        <div class="text-6xl text-primary/15 font-heading leading-none absolute top-5 right-7 select-none">"</div>
+        <div class="stars flex gap-1 mb-4">
+          <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="far fa-star text-sm"></i>
+        </div>
+        <p class="text-gray-600 leading-relaxed mb-7 text-sm">
+          "I switched to Orgaanic after years of buying from supermarkets. The difference in taste and freshness is extraordinary. I'll never go back to conventional products again."
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Client" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <div class="font-heading font-bold text-dark text-base">Priya Nair</div>
+            <div class="text-primary text-xs font-medium">Home Chef & Food Blogger</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════════ -->
+<section class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1920&q=80" alt="Farm" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-dark/80"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <div class="leaf-divider sec-label mb-5 justify-center">Limited Time Offer</div>
+    <h2 class="font-heading text-4xl lg:text-5xl font-bold text-white mb-6">
+      Ready to Experience <em class="not-italic text-accent">Truly Natural</em> Farm Products?
+    </h2>
+    <p class="text-gray-300 text-lg mb-10">
+      Contact us today to place your first order and taste the Orgaanic difference. Free delivery on first orders over $50.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#" class="btn-green inline-flex items-center gap-2 px-8 py-4 rounded font-semibold text-base">
+        Order Now <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="tel:+8801712345678" class="inline-flex items-center gap-3 px-8 py-4 rounded font-semibold text-base border-2 border-white/50 text-white hover:bg-white hover:text-dark transition-all">
+        <i class="fas fa-phone"></i> Call Us Today
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BLOG SECTION
+══════════════════════════════════════════ -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+      <div>
+        <div class="leaf-divider sec-label mb-4">Our Blog</div>
+        <h2 class="font-heading text-4xl lg:text-5xl font-bold text-dark">
+          Latest Farm <em class="not-italic text-primary">Insights</em>
+        </h2>
+      </div>
+      <a href="#" class="btn-outline inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-sm flex-shrink-0">
+        View All Posts <i class="fas fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+
+      <!-- Blog 1 -->
+      <article class="blog-card group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-400">
+        <div class="relative overflow-hidden h-52">
+          <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=500&q=80" alt="Blog" class="w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded">Farming</div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+            <span><i class="fas fa-calendar-alt mr-1 text-primary"></i> 12 Jan 2025</span>
+            <span><i class="fas fa-user mr-1 text-primary"></i> James H.</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-dark mb-2 leading-snug group-hover:text-primary transition-colors">How Grass-Fed Cattle Produce Healthier Meat</h3>
+          <p class="text-gray-500 text-xs leading-relaxed mb-4">Explore the nutritional differences between grass-fed and grain-fed beef and why it matters for your health.</p>
+          <a href="#" class="inline-flex items-center gap-1 text-primary font-semibold text-xs">Read More <i class="fas fa-arrow-right text-[10px]"></i></a>
+        </div>
+      </article>
+
+      <!-- Blog 2 -->
+      <article class="blog-card group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-400">
+        <div class="relative overflow-hidden h-52">
+          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=500&q=80" alt="Blog" class="w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded">Dairy</div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+            <span><i class="fas fa-calendar-alt mr-1 text-primary"></i> 28 Feb 2025</span>
+            <span><i class="fas fa-user mr-1 text-primary"></i> Sarah M.</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-dark mb-2 leading-snug group-hover:text-primary transition-colors">The Benefits of Raw Farm Milk vs Processed Milk</h3>
+          <p class="text-gray-500 text-xs leading-relaxed mb-4">Raw farm milk retains enzymes and probiotics that are destroyed during pasteurisation. Here's what you need to know.</p>
+          <a href="#" class="inline-flex items-center gap-1 text-primary font-semibold text-xs">Read More <i class="fas fa-arrow-right text-[10px]"></i></a>
+        </div>
+      </article>
+
+      <!-- Blog 3 -->
+      <article class="blog-card group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-400">
+        <div class="relative overflow-hidden h-52">
+          <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=500&q=80" alt="Blog" class="w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded">Sustainability</div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+            <span><i class="fas fa-calendar-alt mr-1 text-primary"></i> 5 Mar 2025</span>
+            <span><i class="fas fa-user mr-1 text-primary"></i> Daniel O.</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-dark mb-2 leading-snug group-hover:text-primary transition-colors">Sustainable Farming: Our Commitment to the Earth</h3>
+          <p class="text-gray-500 text-xs leading-relaxed mb-4">Learn about the eco-conscious practices we implement at Orgaanic to minimise our carbon footprint and protect biodiversity.</p>
+          <a href="#" class="inline-flex items-center gap-1 text-primary font-semibold text-xs">Read More <i class="fas fa-arrow-right text-[10px]"></i></a>
+        </div>
+      </article>
+
+      <!-- Blog 4 -->
+      <article class="blog-card group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-400">
+        <div class="relative overflow-hidden h-52">
+          <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=500&q=80" alt="Blog" class="w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded">Nutrition</div>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+            <span><i class="fas fa-calendar-alt mr-1 text-primary"></i> 19 Apr 2025</span>
+            <span><i class="fas fa-user mr-1 text-primary"></i> Amanda R.</span>
+          </div>
+          <h3 class="font-heading text-base font-bold text-dark mb-2 leading-snug group-hover:text-primary transition-colors">5 Reasons to Switch to Organic Meat This Year</h3>
+          <p class="text-gray-500 text-xs leading-relaxed mb-4">From better taste to higher omega-3 content, discover why making the switch to organic meat is one of the best health decisions you can make.</p>
+          <a href="#" class="inline-flex items-center gap-1 text-primary font-semibold text-xs">Read More <i class="fas fa-arrow-right text-[10px]"></i></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     NEWSLETTER BANNER
+══════════════════════════════════════════ -->
+<section class="bg-primary py-14">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div>
+      <h3 class="font-heading text-2xl font-bold text-white mb-1">Subscribe for Farm Updates & Exclusive Offers</h3>
+      <p class="text-white/70 text-sm">Join 5,000+ subscribers who get weekly recipes, farm news & discount codes.</p>
+    </div>
+    <form class="flex gap-3 w-full md:w-auto" onsubmit="return false;">
+      <input type="email" placeholder="Enter your email address…" class="flex-1 md:w-72 px-5 py-3.5 rounded font-body text-sm outline-none text-dark placeholder-gray-400" />
+      <button type="submit" class="bg-dark text-white px-6 py-3.5 rounded font-semibold text-sm hover:bg-primary-dk transition-colors whitespace-nowrap flex items-center gap-2">
+        Subscribe <i class="fas fa-paper-plane text-xs"></i>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="bg-dark text-gray-400 pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
+
+      <!-- Col 1 – Brand -->
+      <div>
+        <a href="#" class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+            <i class="fas fa-leaf text-white"></i>
+          </div>
+          <span class="font-heading text-2xl font-bold text-white">Org<em class="not-italic text-primary">aanic</em></span>
+        </a>
+        <p class="text-sm leading-relaxed mb-6">
+          We're committed to delivering fresh, chemical-free dairy and meat products straight from our pasture to your plate.
+        </p>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-facebook-f text-xs text-white"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-twitter text-xs text-white"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-instagram text-xs text-white"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-youtube text-xs text-white"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2 – Quick Links -->
+      <div>
+        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2">Quick Links</h5>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> About Our Farm</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Our Services</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Our Products</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Farm Gallery</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Team Members</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 – Services -->
+      <div>
+        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2">Our Services</h5>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Pasture Management</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Cattle Sales & Supply</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Natural Feed Production</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Grass-Fed Management</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Dairy Production</a></li>
+          <li><a href="#" class="flex items-center gap-2 hover:text-primary-lt transition-colors"><i class="fas fa-angle-right text-primary text-xs"></i> Farm Tours</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4 – Contact -->
+      <div>
+        <h5 class="text-white font-heading font-bold text-lg mb-6 relative after:content-[''] after:block after:w-8 after:h-0.5 after:bg-primary after:mt-2">Contact Us</h5>
+        <ul class="space-y-4 text-sm">
+          <li class="flex gap-3 items-start">
+            <i class="fas fa-map-marker-alt text-primary mt-0.5 flex-shrink-0"></i>
+            <span>Charabari, Shingra, Natore, Rajshahi, Bangladesh</span>
+          </li>
+          <li class="flex gap-3 items-center">
+            <i class="fas fa-phone text-primary flex-shrink-0"></i>
+            <a href="tel:+8801712345678" class="hover:text-primary-lt transition-colors">+880 1712 345 678</a>
+          </li>
+          <li class="flex gap-3 items-center">
+            <i class="fas fa-envelope text-primary flex-shrink-0"></i>
+            <a href="mailto:cattlefarm@orgaanic.com" class="hover:text-primary-lt transition-colors">cattlefarm@orgaanic.com</a>
+          </li>
+          <li class="flex gap-3 items-start">
+            <i class="fas fa-clock text-primary mt-0.5 flex-shrink-0"></i>
+            <span>Mon – Sat: 8:00 am – 6:00 pm<br />Sunday: Closed</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 pt-7 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p>© 2025 <a href="#" class="text-primary hover:text-primary-lt">Orgaanic</a> Farm. All Rights Reserved.</p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-primary-lt transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-primary-lt transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-primary-lt transition-colors">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     BACK TO TOP BUTTON
+══════════════════════════════════════════ -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  class="fixed bottom-7 right-7 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-dk transition-all duration-300 opacity-0 pointer-events-none z-50"
+  aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- ══════════════════════════════════════════
+     INLINE JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+  /* ── Mobile menu toggle ── */
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  /* ── Sticky navbar shadow on scroll ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('shadow-md');
+    } else {
+      navbar.classList.remove('shadow-md');
+    }
+    /* Back to top button */
+    const btn = document.getElementById('backToTop');
+    if (window.scrollY > 400) {
+      btn.classList.remove('opacity-0','pointer-events-none');
+    } else {
+      btn.classList.add('opacity-0','pointer-events-none');
+    }
+  });
+
+  /* ── Animate stats on scroll (Intersection Observer) ── */
+  const statNums = document.querySelectorAll('.stat-num');
+  const targets  = [1200, 20, 2850, 30];
+
+  const animateCount = (el, target) => {
+    let count = 0;
+    const step = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      count += step;
+      if (count >= target) { el.textContent = target + '+'; clearInterval(timer); return; }
+      el.textContent = count + '+';
+    }, 24);
+  };
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        statNums.forEach((el, i) => animateCount(el, targets[i]));
+        statsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+
+  if (statNums.length) statsObserver.observe(statNums[0]);
+</script>
+</body>
+</html>
